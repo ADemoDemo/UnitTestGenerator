@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{00EFBBF4-A2EF-4617-A7AE-E83577CD2D01}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UnitTestGenerator</RootNamespace>
+    <AssemblyName>UnitTestGenerator</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>UnitTestGenerator.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Check.cs" />
+    <Compile Include="CodeGeneration\Generators\INullArgumentConstructorTestMethodSourceCodeGenerator.cs" />
+    <Compile Include="CodeGeneration\Generators\INullArgumentMethodTestMethodSourceCodeGenerator.cs" />
+    <Compile Include="CodeGeneration\IMockExpressionProvider.cs" />
+    <Compile Include="CodeGeneration\IValueExpressionProvider.cs" />
+    <Compile Include="CodeGeneration\Generators\AbstractTestMethodSourceCodeGenerator.cs" />
+    <Compile Include="CodeGeneration\Generators\ConstructorSourceCodeGenerationRequest.cs" />
+    <Compile Include="CodeGeneration\Generators\ConstructorTestMethodSourceCodeGenerator.cs" />
+    <Compile Include="CodeGeneration\Generators\ITestMethodSourceCodeGenerator.cs" />
+    <Compile Include="CodeGeneration\Generators\MethodSourceCodeGenerationRequest.cs" />
+    <Compile Include="CodeGeneration\Generators\NullArgumentConstructorTestMethodSourceCodeGenerator.cs" />
+    <Compile Include="CodeGeneration\Generators\NullArgumentMethodTestMethodSourceCodeGenerator.cs" />
+    <Compile Include="CodeGeneration\Generators\RandomArgumentConstructorTestMethodSourceCodeGenerator.cs" />
+    <Compile Include="CodeGeneration\Generators\SourceCodeGenerationRequest.cs" />
+    <Compile Include="Strings.cs" />
+    <Compile Include="TestMethod.cs" />
+    <Compile Include="UnitTestGeneration\ConstructorAbstractTestMethodGenerator.cs" />
+    <Compile Include="UnitTestGeneration\MethodAbstractTestMethodGenerator.cs" />
+    <Compile Include="AssemblyTraverser.cs" />
+    <Compile Include="CodeGeneration\CSharpIdentifierValidator.cs" />
+    <Compile Include="UnitTestGeneration\ConstructorMetadata.cs" />
+    <Compile Include="CodeGeneration\DefaultValueForTypeMapper.cs" />
+    <Compile Include="CodeGeneration\ExpressionStringBuilder.cs" />
+    <Compile Include="IAssemblyTraverser.cs" />
+    <Compile Include="IAssemblyTraverserConfigurator.cs" />
+    <Compile Include="CodeGeneration\IIdentifierValidator.cs" />
+    <Compile Include="CodeGeneration\IExpressionBuilder.cs" />
+    <Compile Include="UnitTestGeneration\ITestMethodGenerator.cs" />
+    <Compile Include="ITestClassBuilder.cs" />
+    <Compile Include="CodeGeneration\ITestMethodValueProvider.cs" />
+    <Compile Include="UnitTestGeneration\MethodMetadata.cs" />
+    <Compile Include="UnitTestGeneration\NullArgumentConstructorTestMethodGenerator.cs" />
+    <Compile Include="UnitTestGeneration\NullArgumentMethodTestMethodGenerator.cs" />
+    <Compile Include="CodeGeneration\ExpressionBuilder.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitTestGeneration\RandomArgumentConstructorTestMethodGenerator.cs" />
+    <Compile Include="StringExtensions.cs" />
+    <Compile Include="TestClassBuilder.cs" />
+    <Compile Include="TestClass.cs" />
+    <Compile Include="UnitTestGeneration\TypeExtensions.cs" />
+    <Compile Include="ValidatedNotNullAttribute.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="UnitTestGenerator.ruleset" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
