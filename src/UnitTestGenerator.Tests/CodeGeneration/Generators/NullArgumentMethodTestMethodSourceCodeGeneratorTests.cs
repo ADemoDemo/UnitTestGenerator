@@ -37,9 +37,7 @@ namespace UnitTestGenerator.CodeGeneration.Generators.Tests
 
             var sourceCode = testee.BuildSourceCode(instanceMethodRequest);
 
-            sourceCode.Should().Be($@"var {expressionString};
-{expressionString};
-");
+            sourceCode.Should().Be($@"var {expressionString};{Environment.NewLine}{expressionString};{Environment.NewLine}");
         }
 
         [TestMethod]
@@ -52,8 +50,7 @@ namespace UnitTestGenerator.CodeGeneration.Generators.Tests
 
             var sourceCode = testee.BuildSourceCode(staticMethodRequest);
 
-            sourceCode.Should().Be($@"{expressionString};
-");
+            sourceCode.Should().Be($@"{expressionString};{Environment.NewLine}");
         }
 
         [TestInitialize]

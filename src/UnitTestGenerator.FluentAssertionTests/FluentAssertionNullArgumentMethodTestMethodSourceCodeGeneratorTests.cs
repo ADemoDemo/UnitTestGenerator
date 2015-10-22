@@ -47,21 +47,20 @@ namespace UnitTestGenerator.FluentAssertion.Tests
         [TestMethod]
         public void BuildSourceCode2()
         {
+            const string expr = "expr1";
             var sampleInstance = new TestAssembly.OverloadedMethods("");
             TestMethod methodDelegate = sampleInstance.OverloadedMethod;
             var expressionBuilder = MockRepository.GenerateMock<IFluentAssertionExpressionBuilder>();
             expressionBuilder.Stub(m => m.ExpressionToString(null))
                 .IgnoreArguments()
-                .Return("expr1");
+                .Return(expr);
             var testee = new FluentAssertionNullArgumentMethodTestMethodSourceCodeGenerator(expressionBuilder,
                 MockRepository.GenerateMock<ITestMethodValueProvider>());
             var request = new MethodSourceCodeGenerationRequest(methodDelegate.Method);
 
             var result = testee.BuildSourceCode(request);
 
-            result.Should().Be(@"var expr1;
-expr1;
-");
+            result.Should().Be($@"var {expr};{Environment.NewLine}{expr};{Environment.NewLine}");
         }
     }
 }
