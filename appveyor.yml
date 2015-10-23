@@ -14,4 +14,3 @@ environment:
 after_test: 
   - src\packages\OpenCover.4.6.166\tools\OpenCover.Console.exe -register:user -filter:"+[UnitTestGenerator]* -[*.Tests]*" -excludebyattribute:*.ExcludeFromCodeCoverage*^ -mergebyhash -target:"C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\MSTest.exe" -targetargs:"/testcontainer:src/UnitTestGenerator.Tests/bin/Debug/UnitTestGenerator.Tests.dll" -output:coverage.xml
   - src\packages\coveralls.net.0.6.0\tools\csmacnz.Coveralls.exe --opencover -i coverage.xml
-  
