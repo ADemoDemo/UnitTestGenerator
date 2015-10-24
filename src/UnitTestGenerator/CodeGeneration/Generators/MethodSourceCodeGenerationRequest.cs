@@ -14,6 +14,7 @@
  * limitations under the License.
  *
  * ***************************************************************************/
+
 using System.Reflection;
 
 namespace UnitTestGenerator.CodeGeneration.Generators
