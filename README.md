@@ -8,7 +8,7 @@ The primary purpose of **Unit Test Generator** is to generate repetative and bor
  3. Test Class source code generation (T4)
 
 Each part of code generation can be customized. Tests mostly validate whether an ArgumentNullException was thrown. Therefore T4 template and method body generation will fit for most developers and unit test frameworks(changing test method attribute in T4 does not counts or hurts :). With the generation of method name it is a different case. For the test method naming was the [Roy Osherove's naming strategy](http://osherove.com/blog/2005/4/3/naming-standards-for-unit-tests.html) used. However this can be changed by your own implementation. About that later.
-You can find more examples of generated tests in the [repository](blob/master/src/UnitTestGenerator.Tests/ArgumentTest.cs).
+You can find more examples of generated tests in the [repository](src/UnitTestGenerator.Tests/ArgumentTest.cs).
 
 Generated test may look like:
 ```c#
@@ -23,7 +23,7 @@ Generated test may look like:
 
 # Getting started #
 
-> Nuget package is comming soon
+    PM> Install-Package UnitTestGenerator
 
 When you have your own test generators code usage should look like this:
 ```c#
@@ -53,10 +53,9 @@ var testClassBuilder = typeof(CustomAssembly.Class1).Assembly
 
 For the syntax above you will need to install package UnitTestGenerator.Extensions.Composition to make it work. 
 
-> UnitTestGenerator.Extensions.Composition - nuget package comming soon
+    PM> Install-Package UnitTestGenerator.Extensions.Composition
 
-**Example of usage as T4 template**
-It will install basic T4 template as well. If you do not need these dependencies only the T4 template you can download it from our repository **here comes the link to t4**
+It will install basic T4 template or you can use direct [link](nuget/ArgumentCheck.tt). 
 
 # Why
 
