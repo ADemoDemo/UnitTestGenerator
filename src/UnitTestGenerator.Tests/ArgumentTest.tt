@@ -48,10 +48,6 @@ using UnitTestGenerator.CodeGeneration.Generators;
                             (Expression<Func<LambdaExpression>>)(() => (Expression<Func<string>>)(() => string.Empty)),
                             
                             })
-                        .ExcludeTypesForRandomArgumentConstructors(new Type [] { 
-                            typeof(TestMethod), 
-                            typeof(DefaultValueForTypeMapper)
-                         })
                         .ParameterTypeMapping(new Dictionary<Type, string> {
                              { typeof(AssemblyTraverser), "testee"  } 
                         })

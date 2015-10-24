@@ -26,8 +26,6 @@ namespace UnitTestGenerator.Integration
         ITestBuilderConfigurator Excluding(params Type[] typesToExclude);
         ITestBuilderConfigurator ParameterTypeMapping(IDictionary<Type, string> parametersForType);
         ITestBuilderConfigurator WithDefaultValues(IEnumerable<LambdaExpression> defaultValues);
-        ITestBuilderConfigurator ExcludeTypesForRandomArgumentConstructors(params Type[] ignoredTypes);
-        //ITestBuilderConfigurator DeleteGenerators();
         ITestBuilderConfigurator AddGenerator(ITestMethodGenerator testMethodGenerator);
         ITestBuilderConfigurator AddGenerator<TGenerator>() where TGenerator : ITestMethodGenerator;
         ITestBuilderConfigurator AddGenerator(Func<IServiceProvider, ITestMethodGenerator> instanceProducer);

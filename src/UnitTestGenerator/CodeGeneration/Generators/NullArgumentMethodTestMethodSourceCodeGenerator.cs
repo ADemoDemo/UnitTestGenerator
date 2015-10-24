@@ -59,23 +59,10 @@ namespace UnitTestGenerator.CodeGeneration.Generators
         protected override void BuildActSourceCode(MethodSourceCodeGenerationRequest request)
         {
             var method = request.Method;
-
-            ////var paramExpression = Expression.Parameter(method.ReflectedType, "x");
-            //var arguments = CreateArgumentExpressions(request.TargetParameter, method.GetParameters(), request.NullArgumentNeedsExplicitCast);
             var arguments = expressionBuilder.CreateArgumentExpressions(method.GetParameters(), request.NullArgumentNeedsExplicitCast, request.ParameterDestinedAsNull);
             var callExpression = method.IsStatic ? Expression.Call(method, arguments) : Expression.Call(InstanceExpression, method, arguments);
-            //var callExpression = Expression.Call(InstanceExpression, method, arguments);
-            ////var lambda = Expression.Lambda(typeof(Action<>).MakeGenericType(method.ReflectedType), callExpression, paramExpression);
-            ////var invokeGenericMethod = ((MethodCallExpression)invokingActionMethod.Body).Method.GetGenericMethodDefinition().MakeGenericMethod(method.ReflectedType);
-            ////var invokeExpr = Expression.Call(null, invokeGenericMethod, InstanceExpression, lambda);
-
             Append(expressionBuilder.ExpressionToString(callExpression));
-            //sb.Append("\t");
-            //sb.AppendFormat(@".ShouldThrowExactly<ArgumentNullException>().Where(x => x.ParamName == ""{0}"")", nullParameter.Name);
             AppendLine(";");
-            //sb.AppendLine(GetValidationCode(nullParameter));
-            //var sourceCode = sb.ToString();
-            //return sourceCode;
         }
 
         protected override void BuildArrangeSourceCode(MethodSourceCodeGenerationRequest request)
@@ -85,8 +72,6 @@ namespace UnitTestGenerator.CodeGeneration.Generators
             {
                 return;
             }
-            //StringBuilder testInitializationSourceCode = new StringBuilder();
-            //ParameterExpression varExpr;
             string variableName;
             if (testMethodValueProvider.HasVariableForTestedType(method.ReflectedType, out variableName))//referencing existing variable
             {

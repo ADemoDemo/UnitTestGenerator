@@ -35,7 +35,6 @@ namespace UnitTestGenerator.Tests
                    mockExpressionProvider,
                    valueExpressionProvider,
                    configurator => configurator.AddGenerator(testMethodGenerator)
-                        .ExcludeTypesForRandomArgumentConstructors(typeof(string))
                         .ParameterTypeMapping(new Dictionary<Type, string> { { typeof(string), "stringField" } })
                         .Excluding(typeof(string))
                    );

@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestGenerator.Integrati
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestGenerator.CI", "UnitTestGenerator.CI\UnitTestGenerator.CI.csproj", "{5B9FAB63-DA81-4EB1-8199-345A74F12C50}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestGenerator.Extensions.Composition", "UnitTestGenerator.Extensions.Composition\UnitTestGenerator.Extensions.Composition.csproj", "{48AFD21D-A7A2-4022-85C3-4A2DF98A4220}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -79,6 +81,10 @@ Global
 		{5B9FAB63-DA81-4EB1-8199-345A74F12C50}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B9FAB63-DA81-4EB1-8199-345A74F12C50}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B9FAB63-DA81-4EB1-8199-345A74F12C50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48AFD21D-A7A2-4022-85C3-4A2DF98A4220}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48AFD21D-A7A2-4022-85C3-4A2DF98A4220}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48AFD21D-A7A2-4022-85C3-4A2DF98A4220}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48AFD21D-A7A2-4022-85C3-4A2DF98A4220}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

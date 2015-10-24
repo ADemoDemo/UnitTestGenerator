@@ -61,13 +61,6 @@ namespace UnitTestGenerator.Integration
             return this;
         }
 
-        public ITestBuilderConfigurator ExcludeTypesForRandomArgumentConstructors(params Type[] ignoredTypes)
-        {
-            this.ignoredConstructorTypes = ignoredTypes;
-            return this;
-        }
-
-
         internal ITestMethodValueProvider GetTestMethodValueProvider()
         {
             if (defaultValueForTypeMapper == null)

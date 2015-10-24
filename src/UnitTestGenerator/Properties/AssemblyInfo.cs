@@ -22,9 +22,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Unit Test Generator")]
-[assembly: AssemblyDescription("Automated unit test source code generator.")]
+[assembly: AssemblyDescription("Extensible source code generator of simple unit tests.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Peter Csikós")]
 [assembly: AssemblyProduct("Unit Test Generator")]
 [assembly: AssemblyCopyright("Copyright © Peter Csikós 2015")]
 [assembly: AssemblyTrademark("")]
@@ -47,8 +47,7 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
-// [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.4.*")]
+[assembly: AssemblyVersion("0.4.2.*")]
 [assembly: AssemblyFileVersion("0.4.2.0")]
 [assembly: InternalsVisibleTo("UnitTestGenerator.Tests")]
 [assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]

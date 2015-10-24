@@ -34,13 +34,7 @@ namespace UnitTestGenerator.Integration
 
             configurator.AddGenerator<NullArgumentMethodTestMethodGenerator>()
                 .AddGenerator<NullArgumentConstructorTestMethodGenerator>();
-            //.AddGenerator<DefaultConstructorTestMethodGenerator>();
 
-            if (testGeneratorConfigurator != null)
-            {
-                configurator.AddGenerator(provider => new RandomArgumentConstructorTestMethodGenerator(testGeneratorConfigurator.IgnoredConstructorTypesForRandomArgumentConstructors,
-                    (RandomArgumentConstructorTestMethodSourceCodeGenerator)provider.GetService(typeof(RandomArgumentConstructorTestMethodSourceCodeGenerator))));
-            }
             return configurator;
         }
 

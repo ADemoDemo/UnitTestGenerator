@@ -22,7 +22,7 @@ using System.Reflection;
 namespace UnitTestGenerator
 {
     /// <summary>
-    /// 
+    /// Scans types in assembly and filters them according to criteria.
     /// </summary>
     public class AssemblyTraverser : IAssemblyTraverser, IAssemblyTraverserConfigurator
     {

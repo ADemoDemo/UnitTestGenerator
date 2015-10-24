@@ -87,7 +87,6 @@
     <Compile Include="CodeGeneration\ExpressionBuilderTests.cs" />
     <Compile Include="CodeGeneration\Generators\NullArgumentConstructorTestMethodSourceCodeGeneratorTests.cs" />
     <Compile Include="CodeGeneration\Generators\NullArgumentMethodTestMethodSourceCodeGeneratorTests.cs" />
-    <Compile Include="CodeGeneration\Generators\RandomArgumentConstructorTestMethodSourceCodeGeneratorTests.cs" />
     <Compile Include="ParameterExpressionBuilderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringExtensionsTests.cs" />
