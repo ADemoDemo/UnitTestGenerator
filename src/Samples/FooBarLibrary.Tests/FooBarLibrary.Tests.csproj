@@ -59,14 +59,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\UnitTestGenerator.Extensions.Composition\UnitTestGenerator.Extensions.Composition.csproj">
-      <Project>{48afd21d-a7a2-4022-85c3-4a2df98a4220}</Project>
-      <Name>UnitTestGenerator.Extensions.Composition</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\UnitTestGenerator\UnitTestGenerator.csproj">
-      <Project>{00efbbf4-a2ef-4617-a7ae-e83577cd2d01}</Project>
-      <Name>UnitTestGenerator</Name>
-    </ProjectReference>
     <ProjectReference Include="..\FooBarLibrary\FooBarLibrary.csproj">
       <Project>{98F7F7BA-4285-4FEB-BEF4-F6FE66BF46E0}</Project>
       <Name>FooBarLibrary</Name>
