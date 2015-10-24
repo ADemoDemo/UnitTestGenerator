@@ -31,14 +31,14 @@ namespace UnitTestGenerator.UnitTestGeneration
         }
 
         /// <summary>
-        /// Generates a collection of <see cref="TestMethod"/> for methods on passed <see cref="Type"/>.
+        /// Generates a enumeration of <see cref="TestMethod"/>.
         /// </summary>
-        /// <param name="type"></param>
-        /// <returns>Collection of <see cref="TestMethod"/>.</returns>
-        public IEnumerable<TestMethod> GenerateTestMethods(Type type)
+        /// <param name="typeContext">The context for which the methods are generated.</param>
+        /// <returns>The enumeration of <see cref="TestMethod"/>.</returns>
+        public IEnumerable<TestMethod> GenerateTestMethods(TypeContext typeContext)
         {
             var tests = new List<TestMethod>();
-            var methodsToTest = GetMethodsToTest(type);
+            var methodsToTest = GetMethodsToTest(typeContext.TargetType, typeContext.InternalsVisible);
             var explicitMethodParameters = GetMethodsWithExplicitParameterCast(methodsToTest);
 
             foreach (var method in methodsToTest)
@@ -58,9 +58,10 @@ namespace UnitTestGenerator.UnitTestGeneration
                             .SelectMany(x => x).ToArray();
         }
 
-        private static IEnumerable<MethodInfo> GetMethodsToTest(Type type)
+        private static IEnumerable<MethodInfo> GetMethodsToTest(Type type, bool internalsVisible)
         {
-            return type.GetMethods()
+            return type.GetMethods(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static | BindingFlags.Instance)
+                            .Where(x => x.IsPublic || x.IsAssembly && internalsVisible)
                             .Where(x => !x.IsSpecialName
                                         && x.DeclaringType == x.ReflectedType
                                         && x.GetParameters().Count() > 0

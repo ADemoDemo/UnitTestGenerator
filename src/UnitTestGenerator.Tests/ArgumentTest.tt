@@ -5,32 +5,29 @@
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="System.Reflection" #>
 <#@ Assembly Name="$(SolutionDir)UnitTestGenerator\bin\Debug\UnitTestGenerator.dll" #>
-<#@ Assembly Name="$(SolutionDir)UnitTestGenerator.DynamicProxy\bin\Debug\UnitTestGenerator.DynamicProxy.dll" #>
 <#@ Assembly Name="$(SolutionDir)UnitTestGenerator.Integration\bin\Debug\UnitTestGenerator.Integration.dll" #>
 <#@ Assembly Name="$(SolutionDir)TestAssembly\bin\Debug\TestAssembly.dll" #>
 <#@ import namespace="UnitTestGenerator" #>
 <#@ import namespace="System.Linq.Expressions" #>
 <#@ import namespace="UnitTestGenerator.DynamicProxy" #>
+<#@ import namespace="UnitTestGenerator.ExpressionProviders" #>
 <#@ import namespace="UnitTestGenerator.CodeGeneration" #>
 <#@ import namespace="UnitTestGenerator.UnitTestGeneration" #>
 <#@ import namespace="UnitTestGenerator.CodeGeneration.Generators" #>
 <#@ import namespace="UnitTestGenerator.Integration" #>
-
 <#@ output extension=".cs" #>
 <#@ assembly name="EnvDte" #>
 <#@ import namespace="EnvDTE" #>
-using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Net;
 using System.Collections.Generic;
 using System.Reflection;
 using UnitTestGenerator.DynamicProxy;
 using System.Linq.Expressions;
-using UnitTestGenerator.Tests;
 using UnitTestGenerator.UnitTestGeneration;
 using UnitTestGenerator.CodeGeneration;
 using UnitTestGenerator.CodeGeneration.Generators;
+using UnitTestGenerator.ExpressionProviders;
 <#
     var dte = (this.Host as IServiceProvider).GetService(typeof(EnvDTE.DTE)) as EnvDTE.DTE;
     var currentProject = dte.Solution.FindProjectItem(this.Host.TemplateFile).ContainingProject as EnvDTE.Project;
@@ -38,7 +35,7 @@ using UnitTestGenerator.CodeGeneration.Generators;
     var generator = typeof(UnitTestGenerator.TestClassBuilder).Assembly
                 .Scan(currentProject.Name, new CastleMockProvider(), new AutoFixtureValueExpressionProvider(), configure => configure
                         .UseBuiltinGenerators()
-                        .Excluding(typeof(TestClass))
+                        .Excluding(typeof(TestClass), typeof(ProxyGeneratorException), typeof(TypeAccessiblityException))
                         .WithDefaultValues(new LambdaExpression [] {
                             (Expression<Func<MemberInfo>>)(() => typeof(string).GetMethods()[0]),
                             (Expression<Func<MethodInfo>>)(() => typeof(string).GetMethods()[0]),

@@ -32,14 +32,14 @@ namespace UnitTestGenerator.UnitTestGeneration
         }
 
         /// <summary>
-        /// Generates a collection of <see cref="TestMethod"/> for constructors on passed <see cref="Type"/>.
+        /// Generates a collection of <see cref="TestMethod"/>.
         /// </summary>
-        /// <param name="type">The type for generating test methods.</param>
+        /// <param name="typeContext">The context for which the methods are generated.</param>
         /// <returns>Collection of <see cref="TestMethod"/>.</returns>
-        public IEnumerable<TestMethod> GenerateTestMethods(Type type)
+        public IEnumerable<TestMethod> GenerateTestMethods(TypeContext typeContext)
         {
             var tests = new List<TestMethod>();
-            var ctorsToTest = GetAccessibleContructors(type);
+            var ctorsToTest = GetAccessibleContructors(typeContext.TargetType, typeContext.InternalsVisible);
             var explicitMethodParameters = GetCtorsWithExplicitParameterCast(ctorsToTest);
             var hasMultipleConstructors = HasMultipleParametrizedConstructors(ctorsToTest);
 
@@ -59,9 +59,12 @@ namespace UnitTestGenerator.UnitTestGeneration
             return !constructor.GetParameters().Any();
         }
 
-        private static IEnumerable<ConstructorInfo> GetAccessibleContructors(Type t)
+        private static IEnumerable<ConstructorInfo> GetAccessibleContructors(Type t, bool internalsVisible)
         {
-            return t.GetConstructors(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.CreateInstance | BindingFlags.Instance).Where(x => !x.IsPrivate);
+            return t.GetConstructors(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.CreateInstance | BindingFlags.Instance)
+                .Where(x => !x.IsPrivate 
+                         && !x.IsFamily
+                         && (!x.IsAssembly || internalsVisible));
         }
 
         private static IEnumerable<ConstructorInfo> GetCtorsWithExplicitParameterCast(IEnumerable<ConstructorInfo> ctorsToTest)

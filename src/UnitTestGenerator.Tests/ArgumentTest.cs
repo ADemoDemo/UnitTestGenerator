@@ -1,16 +1,13 @@
-﻿
-using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using System.Net;
 using System.Collections.Generic;
 using System.Reflection;
 using UnitTestGenerator.DynamicProxy;
 using System.Linq.Expressions;
-using UnitTestGenerator.Tests;
 using UnitTestGenerator.UnitTestGeneration;
 using UnitTestGenerator.CodeGeneration;
 using UnitTestGenerator.CodeGeneration.Generators;
+using UnitTestGenerator.ExpressionProviders;
 
         namespace UnitTestGenerator.Tests
         {
@@ -146,6 +143,22 @@ using UnitTestGenerator.CodeGeneration.Generators;
                     ExpressionStringBuilder.SwitchCaseToString(null);		 
                 }
 
+                [TestMethod]
+                [TestCategory("UnitTestGenerator.ArgumentCheck")]
+                [ExpectedException(typeof(System.ArgumentNullException))]
+                public void MemberBindingToString_NodeNullValueGiven_ShouldThrowArgumentNullException()
+                {
+                    ExpressionStringBuilder.MemberBindingToString(null);		 
+                }
+
+                [TestMethod]
+                [TestCategory("UnitTestGenerator.ArgumentCheck")]
+                [ExpectedException(typeof(System.ArgumentNullException))]
+                public void ElementInitBindingToString_NodeNullValueGiven_ShouldThrowArgumentNullException()
+                {
+                    ExpressionStringBuilder.ElementInitBindingToString(null);		 
+                }
+
             }
         }
 
@@ -168,6 +181,22 @@ using UnitTestGenerator.CodeGeneration.Generators;
                 public void TestClassBuilder_Constructor_TestGeneratorsNullValueGiven_ShouldThrowArgumentNullException()
                 {
                     new TestClassBuilder(ProxyGenerator.CreateProxy<IAssemblyTraverser>(), null);		 
+                }
+
+            }
+        }
+
+        namespace UnitTestGenerator.Tests.UnitTestGeneration
+        {
+            [TestClass]
+            public partial class TypeContextTests
+            {
+                [TestMethod]
+                [TestCategory("UnitTestGenerator.ArgumentCheck")]
+                [ExpectedException(typeof(System.ArgumentNullException))]
+                public void TypeContext_Constructor_TargetTypeNullValueGiven_ShouldThrowArgumentNullException()
+                {
+                    new TypeContext(null, Value.Create<bool>());		 
                 }
 
             }
@@ -248,6 +277,57 @@ using UnitTestGenerator.CodeGeneration.Generators;
                 public void NullArgumentMethodTestMethodGenerator_Constructor_NullArgumentMethodTestMethodSourceCodeGeneratorNullValueGiven_ShouldThrowArgumentNullException()
                 {
                     new NullArgumentMethodTestMethodGenerator(null);		 
+                }
+
+            }
+        }
+
+        namespace UnitTestGenerator.Tests.ExpressionProviders
+        {
+            [TestClass]
+            public partial class AutoFixtureValueExpressionProviderTests
+            {
+                [TestMethod]
+                [TestCategory("UnitTestGenerator.ArgumentCheck")]
+                [ExpectedException(typeof(System.ArgumentNullException))]
+                public void CreateValueExpression_ForTypeNullValueGiven_ShouldThrowArgumentNullException()
+                {
+                    var autoFixtureValueExpressionProvider = new AutoFixtureValueExpressionProvider();		 
+                    autoFixtureValueExpressionProvider.CreateValueExpression(null);		 
+                }
+
+            }
+        }
+
+        namespace UnitTestGenerator.Tests.ExpressionProviders
+        {
+            [TestClass]
+            public partial class CastleMockProviderTests
+            {
+                [TestMethod]
+                [TestCategory("UnitTestGenerator.ArgumentCheck")]
+                [ExpectedException(typeof(System.ArgumentNullException))]
+                public void CreateMockExpression_ForTypeNullValueGiven_ShouldThrowArgumentNullException()
+                {
+                    var castleMockProvider = new CastleMockProvider();		 
+                    castleMockProvider.CreateMockExpression(null);		 
+                }
+
+            }
+        }
+
+        namespace UnitTestGenerator.Tests.DynamicProxy
+        {
+            [TestClass]
+            public partial class CastleProxyGeneratorTests
+            {
+                [TestMethod]
+                [TestCategory("UnitTestGenerator.ArgumentCheck")]
+                [ExpectedException(typeof(System.ArgumentNullException))]
+                public void CreateClassProxy_TargetTypeNullValueGiven_ShouldThrowArgumentNullException()
+                {
+                    var castleProxyGenerator = new CastleProxyGenerator();		 
+                    castleProxyGenerator.CreateClassProxy(null);		 
                 }
 
             }

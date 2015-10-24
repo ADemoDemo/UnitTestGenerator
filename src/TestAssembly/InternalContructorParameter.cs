@@ -8,7 +8,7 @@ namespace TestAssembly
 {
     public class InternalContructorParameter
     {
-        InternalContructorParameter(InternalClass internalClass)
+        internal InternalContructorParameter(InternalClass internalClass)
         {
 
         }

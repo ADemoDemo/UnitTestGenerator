@@ -100,6 +100,14 @@ namespace UnitTestGenerator
             }
         }
 
+        bool IAssemblyTraverser.InternalsVisible
+        {
+            get
+            {
+                return internalsVisible;
+            }
+        }
+
         private void ClearTypeMap()
         {
             baseTypeMap = null;

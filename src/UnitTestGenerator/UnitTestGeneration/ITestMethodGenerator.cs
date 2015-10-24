@@ -27,8 +27,8 @@ namespace UnitTestGenerator.UnitTestGeneration
         /// <summary>
         /// Generates a enumeration of <see cref="TestMethod"/> for methods on passed <see cref="Type"/>.
         /// </summary>
-        /// <param name="type">The type to scan.</param>
+        /// <param name="typeContext">The context for which the methods are generated.</param>
         /// <returns>The enumeration of <see cref="TestMethod"/>.</returns>
-        IEnumerable<TestMethod> GenerateTestMethods(Type type);
+        IEnumerable<TestMethod> GenerateTestMethods(TypeContext typeContext);
     }
 }

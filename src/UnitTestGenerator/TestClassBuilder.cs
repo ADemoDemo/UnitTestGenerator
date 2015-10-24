@@ -65,9 +65,10 @@ namespace UnitTestGenerator
         private IEnumerable<TestMethod> BuildTestsForType(Type type)
         {
             Debug.Assert(type != null);
-            
 
-            var tests = testGenerators.Select(generator => generator.GenerateTestMethods(type))
+            var context = new TypeContext(type, traverser.InternalsVisible);
+
+            var tests = testGenerators.Select(generator => generator.GenerateTestMethods(context))
                 .SelectMany(t => t).ToArray();
             return tests;
         }

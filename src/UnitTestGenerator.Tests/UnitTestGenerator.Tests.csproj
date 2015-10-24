@@ -47,8 +47,8 @@
       <HintPath>..\packages\FluentAssertions.4.0.0\lib\net45\FluentAssertions.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Ploeh.AutoFixture, Version=3.34.0.0, Culture=neutral, PublicKeyToken=b24654c590009d4f, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoFixture.3.34.0\lib\net40\Ploeh.AutoFixture.dll</HintPath>
+    <Reference Include="Ploeh.AutoFixture, Version=3.36.9.0, Culture=neutral, PublicKeyToken=b24654c590009d4f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoFixture.3.36.9\lib\net40\Ploeh.AutoFixture.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Rhino.Mocks, Version=3.6.0.0, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL">
@@ -87,6 +87,8 @@
     <Compile Include="CodeGeneration\ExpressionBuilderTests.cs" />
     <Compile Include="CodeGeneration\Generators\NullArgumentConstructorTestMethodSourceCodeGeneratorTests.cs" />
     <Compile Include="CodeGeneration\Generators\NullArgumentMethodTestMethodSourceCodeGeneratorTests.cs" />
+    <Compile Include="DynamicProxy\CastleProxyGeneratorTests.cs" />
+    <Compile Include="DynamicProxy\FluentAssertionsExtensions.cs" />
     <Compile Include="ParameterExpressionBuilderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringExtensionsTests.cs" />
@@ -98,13 +100,13 @@
     <Compile Include="UnitTestGeneration\NullArgumentMethodTestMethodGeneratorTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FriendlyTestAssembly\FriendlyTestAssembly.csproj">
+      <Project>{7c0f25ea-ebcc-4de1-88af-7e2451a83e0b}</Project>
+      <Name>FriendlyTestAssembly</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TestAssembly\TestAssembly.csproj">
       <Project>{de20fd7d-67de-4c0c-961a-8b4cf3649559}</Project>
       <Name>TestAssembly</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\UnitTestGenerator.DynamicProxy\UnitTestGenerator.DynamicProxy.csproj">
-      <Project>{61186d11-1858-4233-80be-3de2e8977f43}</Project>
-      <Name>UnitTestGenerator.DynamicProxy</Name>
     </ProjectReference>
     <ProjectReference Include="..\UnitTestGenerator\UnitTestGenerator.csproj">
       <Project>{00efbbf4-a2ef-4617-a7ae-e83577cd2d01}</Project>

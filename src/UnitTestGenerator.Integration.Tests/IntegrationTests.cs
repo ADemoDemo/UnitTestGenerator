@@ -5,6 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TestAssembly;
 using UnitTestGenerator.DynamicProxy;
 using UnitTestGenerator.Integration;
+using UnitTestGenerator.ExpressionProviders;
 
 namespace UnitTestGenerator.Tests
 {

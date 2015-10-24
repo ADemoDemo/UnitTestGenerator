@@ -81,10 +81,6 @@
       <Project>{de20fd7d-67de-4c0c-961a-8b4cf3649559}</Project>
       <Name>TestAssembly</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UnitTestGenerator.DynamicProxy\UnitTestGenerator.DynamicProxy.csproj">
-      <Project>{61186d11-1858-4233-80be-3de2e8977f43}</Project>
-      <Name>UnitTestGenerator.DynamicProxy</Name>
-    </ProjectReference>
     <ProjectReference Include="..\UnitTestGenerator.Integration\UnitTestGenerator.Integration.csproj">
       <Project>{f7ae0b23-6084-4583-9be3-f02717f7608c}</Project>
       <Name>UnitTestGenerator.Integration</Name>

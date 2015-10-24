@@ -8,5 +8,9 @@ namespace TestAssembly
 {
     class InternalClass
     {
+        internal void FooBar(string a)
+        {
+
+        }
     }
 }

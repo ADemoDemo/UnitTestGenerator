@@ -8,7 +8,12 @@ namespace TestAssembly
 {
     public class ProtectedConstructor
     {
-        protected ProtectedConstructor()
+        protected ProtectedConstructor(PublicClass clazz)
+        {
+
+        }
+
+        protected void ProtectedMethod(string str)
         {
 
         }

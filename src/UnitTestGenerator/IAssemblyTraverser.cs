@@ -32,5 +32,7 @@ namespace UnitTestGenerator
         /// </summary>
         /// <returns>The enumeration of types.</returns>
         IEnumerable<Type> GetTypes();
+
+        bool InternalsVisible { get; }
     }
 }

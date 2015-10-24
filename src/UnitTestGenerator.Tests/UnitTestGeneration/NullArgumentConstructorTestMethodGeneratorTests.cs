@@ -16,7 +16,8 @@ namespace UnitTestGenerator.UnitTestGeneration.Tests
         [TestMethod]
         public void GenerateTestMethods_SingleParametrizedConstructorTypeGiven_ShouldBuildSingleTestMethod()
         {
-            var result = testee.GenerateTestMethods(typeof(TestAssembly.ClassContructor));
+            var context = new TypeContext(typeof(TestAssembly.ClassContructor), false);
+            var result = testee.GenerateTestMethods(context);
 
             result.Should().NotBeNull();
             result.Should().ContainSingle();
@@ -27,11 +28,45 @@ namespace UnitTestGenerator.UnitTestGeneration.Tests
         [TestMethod]
         public void GenerateTestMethods_DefaultConstructorTypeGiven_ShouldNotReturnAnyTestMethod()
         {
-            var result = testee.GenerateTestMethods(typeof(TestAssembly.PublicClass));
+            var context = new TypeContext(typeof(TestAssembly.PublicClass), false);
+            var result = testee.GenerateTestMethods(context);
 
             result.Should().NotBeNull();
             result.Should().BeEmpty();
         }
+
+        [TestMethod]
+        public void GenerateTestMethods_ProtectedConstructorTypeGiven_ShouldNotReturnAnyTestMethod()
+        {
+            var context = new TypeContext(typeof(TestAssembly.ProtectedConstructor), false);
+            var result = testee.GenerateTestMethods(context);
+
+            result.Should().NotBeNull();
+            result.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void GenerateTestMethods_InternalConstructorTypeGiven_ShouldNotReturnAnyTestMethod()
+        {
+            var context = new TypeContext(typeof(TestAssembly.InternalContructorParameter), false);
+            var result = testee.GenerateTestMethods(context);
+
+            result.Should().NotBeNull();
+            result.Should().BeEmpty();
+        }
+
+        [TestMethod]
+        public void GenerateTestMethods_InternalConstructorTypeWithInternalsVisibleGiven_ShouldNotReturnAnyTestMethod()
+        {
+            var context = new TypeContext(typeof(TestAssembly.InternalContructorParameter), true);
+            var result = testee.GenerateTestMethods(context);
+
+            result.Should().NotBeNull();
+            result.Should().ContainSingle();
+            result.First().Name.Should().Be(expectedMethodName);
+            result.First().SourceCode.Should().Be(expectedSourceCode);
+        }
+
 
         [TestInitialize]
         public void Initialize()
