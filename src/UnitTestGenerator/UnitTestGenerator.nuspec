@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>UnitTestGenerator</id>
+    <version>$version$</version>
+    <title>Unit Test Generator</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <projectUrl>https://github.com/pcsikos/UnitTestGenerator</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <copyright>Peter Csikos 2015</copyright>
+    <tags>unit test tdd templates</tags>
+  </metadata>
+</package>

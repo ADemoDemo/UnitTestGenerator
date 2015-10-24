@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>UnitTestGenerator.Extensions.Composition</id>
+    <version>$version$</version>
+    <title>Unit Test Generator composition extension</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <projectUrl>https://github.com/pcsikos/UnitTestGenerator</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <copyright>Copyright 2015</copyright>
+    <tags>unit test tdd templates unittestgenerator</tags>
+  </metadata>
+  <files>
+    <file src="..\..\nuget\ArgumentCheck.tt" target="content\ArgumentCheck.tt" /> 
+</files>
+</package>
