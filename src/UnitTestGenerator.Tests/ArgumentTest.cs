@@ -8,6 +8,8 @@ using UnitTestGenerator.UnitTestGeneration;
 using UnitTestGenerator.CodeGeneration;
 using UnitTestGenerator.CodeGeneration.Generators;
 using UnitTestGenerator.ExpressionProviders;
+#pragma warning disable RECS0026 // Possible unassigned object created by 'new'
+#pragma warning disable RECS0001 // Class is declared partial but has only one part
 
         namespace UnitTestGenerator.Tests
         {
@@ -285,15 +287,15 @@ using UnitTestGenerator.ExpressionProviders;
         namespace UnitTestGenerator.Tests.ExpressionProviders
         {
             [TestClass]
-            public partial class AutoFixtureValueExpressionProviderTests
+            public partial class ValueExpressionProviderTests
             {
                 [TestMethod]
                 [TestCategory("UnitTestGenerator.ArgumentCheck")]
                 [ExpectedException(typeof(System.ArgumentNullException))]
                 public void CreateValueExpression_ForTypeNullValueGiven_ShouldThrowArgumentNullException()
                 {
-                    var autoFixtureValueExpressionProvider = new ValueExpressionProvider();		 
-                    autoFixtureValueExpressionProvider.CreateValueExpression(null);		 
+                    var valueExpressionProvider = new ValueExpressionProvider();		 
+                    valueExpressionProvider.CreateValueExpression(null);		 
                 }
 
             }
@@ -522,3 +524,5 @@ using UnitTestGenerator.ExpressionProviders;
 
             }
         }
+#pragma warning restore RECS0026 // Possible unassigned object created by 'new'
+#pragma warning restore RECS0001 // Class is declared partial but has only one part

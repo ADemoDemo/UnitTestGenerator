@@ -5,7 +5,7 @@
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="System.Reflection" #>
 <#@ Assembly Name="$(SolutionDir)UnitTestGenerator\bin\Debug\UnitTestGenerator.dll" #>
-<#@ Assembly Name="$(SolutionDir)UnitTestGenerator.Integration\bin\Debug\UnitTestGenerator.Integration.dll" #>
+<#@ Assembly Name="$(SolutionDir)UnitTestGenerator.Extensions.Composition\bin\Debug\UnitTestGenerator.Extensions.Composition.dll" #>
 <#@ Assembly Name="$(SolutionDir)TestAssembly\bin\Debug\TestAssembly.dll" #>
 <#@ import namespace="UnitTestGenerator" #>
 <#@ import namespace="System.Linq.Expressions" #>
@@ -14,7 +14,7 @@
 <#@ import namespace="UnitTestGenerator.CodeGeneration" #>
 <#@ import namespace="UnitTestGenerator.UnitTestGeneration" #>
 <#@ import namespace="UnitTestGenerator.CodeGeneration.Generators" #>
-<#@ import namespace="UnitTestGenerator.Integration" #>
+<#@ import namespace="UnitTestGenerator.Extensions.Composition" #>
 <#@ output extension=".cs" #>
 <#@ assembly name="EnvDte" #>
 <#@ import namespace="EnvDTE" #>
@@ -28,13 +28,15 @@ using UnitTestGenerator.UnitTestGeneration;
 using UnitTestGenerator.CodeGeneration;
 using UnitTestGenerator.CodeGeneration.Generators;
 using UnitTestGenerator.ExpressionProviders;
+#pragma warning disable RECS0026 // Possible unassigned object created by 'new'
+#pragma warning disable RECS0001 // Class is declared partial but has only one part
 <#
     var dte = (this.Host as IServiceProvider).GetService(typeof(EnvDTE.DTE)) as EnvDTE.DTE;
     var currentProject = dte.Solution.FindProjectItem(this.Host.TemplateFile).ContainingProject as EnvDTE.Project;
 
     var generator = typeof(UnitTestGenerator.TestClassBuilder).Assembly
-                .Scan(currentProject.Name, new CastleMockProvider(), new AutoFixtureValueExpressionProvider(), configure => configure
-                        .UseBuiltinGenerators()
+                .ComposeTestClassBuilder(currentProject.Name, configure: configure => configure
+                        .IncludeBuiltinGenerators()
                         .Excluding(typeof(TestClass), typeof(ProxyGeneratorException), typeof(TypeAccessiblityException))
                         .WithDefaultValues(new LambdaExpression [] {
                             (Expression<Func<MemberInfo>>)(() => typeof(string).GetMethods()[0]),
@@ -89,6 +91,8 @@ using UnitTestGenerator.ExpressionProviders;
     
 
 #>
+#pragma warning restore RECS0026 // Possible unassigned object created by 'new'
+#pragma warning restore RECS0001 // Class is declared partial but has only one part
 <#+
 
     string TranslateNamespace(string nSpace)

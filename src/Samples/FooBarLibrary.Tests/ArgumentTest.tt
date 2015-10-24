@@ -1,0 +1,83 @@
+﻿<#@ template debug="true" hostspecific="true" language="C#" #>
+<#@ output extension=".cs" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="EnvDte" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="EnvDTE" #>
+<#@ Assembly Name="$(SolutionDir)Samples\FooBarLibrary\bin\Debug\FooBarLibrary.dll" #>
+<#@ Assembly Name="$(SolutionDir)UnitTestGenerator\bin\Debug\UnitTestGenerator.dll" #>
+<#@ Assembly Name="$(SolutionDir)UnitTestGenerator.Extensions.Composition\bin\Debug\UnitTestGenerator.Extensions.Composition.dll" #>
+<#@ import namespace="UnitTestGenerator" #>
+<#@ import namespace="UnitTestGenerator.Extensions.Composition" #>
+<#@ import namespace="FooBarLibrary" #>
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using UnitTestGenerator;
+#pragma warning disable RECS0026 // Possible unassigned object created by 'new'
+#pragma warning disable RECS0001 // Class is declared partial but has only one part
+<#
+
+	var assembly = typeof(FooBarLibrary.Foo).Assembly;
+    var generator = assembly.ComposeTestClassBuilder(GetProjectName(), configure: configure => configure
+                        .IncludeBuiltinGenerators());
+
+    foreach(var testClass in generator.BuildTestClasses())
+    {
+#>
+        namespace <#= TranslateNamespace(testClass.TestedType.Namespace) #>
+        {
+            [TestClass]
+            public partial class <#= testClass.TestedType.Name #>Tests
+            {
+<#      
+        foreach(var method in testClass.Methods)
+        {
+                var lines = method.SourceCode.Split(new [] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+#>
+                [TestMethod]
+                [TestCategory("UnitTestGenerator.ArgumentCheck")]
+<#
+            if (method.ShouldThrowException != null)
+            { #>
+                [ExpectedException(typeof(<#= method.ShouldThrowException.FullName #>))]
+<#            }
+#>
+                public void <#=method.Name#>()
+                {
+<#          foreach (var line in lines)
+            { #>
+                    <#= line #>		 
+<#          }#>
+                }
+
+<#
+        }
+                #>
+            }
+        }
+<#
+    }
+    
+
+#>
+#pragma warning restore RECS0026 // Possible unassigned object created by 'new'
+#pragma warning restore RECS0001 // Class is declared partial but has only one part
+<#+
+	
+
+    string TranslateNamespace(string nSpace)
+    {
+		var assembly = typeof(FooBarLibrary.Foo).Assembly;
+		var name = assembly.GetName().Name;
+        return nSpace.Replace(name, name + ".Tests");
+    }
+
+	string GetProjectName()
+	{
+	    var dte = (this.Host as IServiceProvider).GetService(typeof(EnvDTE.DTE)) as EnvDTE.DTE;
+	    var currentProject = dte.Solution.FindProjectItem(this.Host.TemplateFile).ContainingProject as EnvDTE.Project;
+		return currentProject.Name;
+	}
+#>
