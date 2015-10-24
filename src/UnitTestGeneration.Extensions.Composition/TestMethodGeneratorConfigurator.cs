@@ -7,7 +7,7 @@ using UnitTestGenerator.UnitTestGeneration;
 
 namespace UnitTestGeneration.Extensions.Composition
 {
-    class TestGeneratorConfigurator : ITestBuilderConfigurator
+    class TestMethodGeneratorConfigurator : ITestMethodGeneratorConfigurator
     {
         private ITestMethodValueProvider defaultValueForTypeMapper;
         private AssemblyTraverser traverser;
@@ -16,7 +16,7 @@ namespace UnitTestGeneration.Extensions.Composition
         private IEnumerable<LambdaExpression> defaultValues = new LambdaExpression[0];
         private readonly GeneratorRegistrationManager generatorManager;
 
-        public TestGeneratorConfigurator(AssemblyTraverser traverser, GeneratorRegistrationManager generatorManager)
+        public TestMethodGeneratorConfigurator(AssemblyTraverser traverser, GeneratorRegistrationManager generatorManager)
         {
             this.traverser = traverser;
             this.generatorManager = generatorManager;
@@ -27,20 +27,20 @@ namespace UnitTestGeneration.Extensions.Composition
             get { return ignoredConstructorTypes; }
         }
 
-        public ITestBuilderConfigurator Excluding(params Type[] excluding)
+        public ITestMethodGeneratorConfigurator Excluding(params Type[] excluding)
         {
             var asmConfig = (IAssemblyTraverserConfigurator)traverser;
             asmConfig.Exclude(excluding);
             return this;
         }
 
-        public ITestBuilderConfigurator ParameterTypeMapping(IDictionary<Type, string> parametersForType)
+        public ITestMethodGeneratorConfigurator ParameterTypeMapping(IDictionary<Type, string> parametersForType)
         {
             this.parametersForType = parametersForType;
             return this;
         }
 
-        public ITestBuilderConfigurator WithDefaultValues(IEnumerable<LambdaExpression> defaultValues)
+        public ITestMethodGeneratorConfigurator WithDefaultValues(IEnumerable<LambdaExpression> defaultValues)
         {
             this.defaultValues = defaultValues;
             return this;
@@ -55,19 +55,19 @@ namespace UnitTestGeneration.Extensions.Composition
             return defaultValueForTypeMapper;
         }
 
-        public ITestBuilderConfigurator AddGenerator(ITestMethodGenerator testMethodGenerator)
+        public ITestMethodGeneratorConfigurator AddGenerator(ITestMethodGenerator testMethodGenerator)
         {
             generatorManager.AddGenerator(testMethodGenerator);
             return this;
         }
 
-        public ITestBuilderConfigurator AddGenerator<TGenerator>() where TGenerator : ITestMethodGenerator
+        public ITestMethodGeneratorConfigurator AddGenerator<TGenerator>() where TGenerator : ITestMethodGenerator
         {
             generatorManager.AddGenerator<TGenerator>();
             return this;
         }
 
-        public ITestBuilderConfigurator AddGenerator(Func<IServiceProvider, ITestMethodGenerator> instanceProducer)
+        public ITestMethodGeneratorConfigurator AddGenerator(Func<IServiceProvider, ITestMethodGenerator> instanceProducer)
         {
             generatorManager.AddGenerator(instanceProducer);
             return this;

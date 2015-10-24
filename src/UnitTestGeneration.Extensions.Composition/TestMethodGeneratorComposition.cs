@@ -13,9 +13,9 @@ namespace UnitTestGeneration.Extensions.Composition
     {
         readonly GeneratorRegistrationManager generatorRegistrationManager = new GeneratorRegistrationManager();
         readonly IAssemblyTraverser traverser;
-        readonly TestGeneratorConfigurator configurator;
+        readonly TestMethodGeneratorConfigurator configurator;
 
-        public TestMethodGeneratorComposition(IAssemblyTraverser traverser, TestGeneratorConfigurator configurator, GeneratorRegistrationManager generatorRegistrationManager)
+        public TestMethodGeneratorComposition(IAssemblyTraverser traverser, TestMethodGeneratorConfigurator configurator, GeneratorRegistrationManager generatorRegistrationManager)
         {
             this.configurator = configurator;
             this.traverser = traverser;
@@ -23,11 +23,11 @@ namespace UnitTestGeneration.Extensions.Composition
         }
 
         public IEnumerable<ITestMethodGenerator> GetGenerators(Action<IContainer> typeRegistration,
-            Action<ITestBuilderConfigurator> configure)
+            Action<ITestMethodGeneratorConfigurator> configure)
         {
             if (configure == null)
             {
-                configurator.UseBuiltinGenerators();
+                configurator.IncludeBuiltinGenerators();
             }
             else
             {
