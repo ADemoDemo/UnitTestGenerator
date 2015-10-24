@@ -1,4 +1,4 @@
-﻿namespace UnitTestGeneration.Extensions.Composition
+﻿namespace UnitTestGenerator.Extensions.Composition
 {
     /// <summary>
     /// IoC container facade

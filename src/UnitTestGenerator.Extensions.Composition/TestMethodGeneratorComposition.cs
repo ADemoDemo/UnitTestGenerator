@@ -7,7 +7,7 @@ using UnitTestGenerator.CodeGeneration;
 using UnitTestGenerator.CodeGeneration.Generators;
 using UnitTestGenerator.UnitTestGeneration;
 
-namespace UnitTestGeneration.Extensions.Composition
+namespace UnitTestGenerator.Extensions.Composition
 {
     class TestMethodGeneratorComposition
     {

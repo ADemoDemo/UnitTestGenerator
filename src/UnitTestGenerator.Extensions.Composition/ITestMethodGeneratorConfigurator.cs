@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using UnitTestGenerator.UnitTestGeneration;
 
-namespace UnitTestGeneration.Extensions.Composition
+namespace UnitTestGenerator.Extensions.Composition
 {
     /// <summary>
     /// Provides chain methods for configuring TestMethodGenerators.

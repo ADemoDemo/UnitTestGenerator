@@ -5,7 +5,7 @@ using UnitTestGenerator;
 using UnitTestGenerator.CodeGeneration;
 using UnitTestGenerator.UnitTestGeneration;
 
-namespace UnitTestGeneration.Extensions.Composition
+namespace UnitTestGenerator.Extensions.Composition
 {
     class TestMethodGeneratorConfigurator : ITestMethodGeneratorConfigurator
     {

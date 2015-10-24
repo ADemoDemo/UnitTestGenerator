@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("UnitTestGeneration.Extensions.Composition")]
+[assembly: AssemblyTitle("UnitTestGenerator.FluentAssertion.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("UnitTestGeneration.Extensions.Composition")]
+[assembly: AssemblyProduct("UnitTestGenerator.FluentAssertion.Tests")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("e95ba7ed-02f6-4991-8a00-538d6090e369")]
+[assembly: Guid("10c49a4a-a532-48df-a3f9-a6ca47fe3e47")]
 
 // Version information for an assembly consists of the following four values:
 //

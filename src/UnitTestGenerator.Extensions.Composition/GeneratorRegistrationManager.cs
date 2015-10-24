@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnitTestGenerator.UnitTestGeneration;
 
-namespace UnitTestGeneration.Extensions.Composition
+namespace UnitTestGenerator.Extensions.Composition
 {
     class GeneratorRegistrationManager
     {

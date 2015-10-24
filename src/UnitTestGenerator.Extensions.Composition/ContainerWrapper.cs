@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace UnitTestGeneration.Extensions.Composition
+namespace UnitTestGenerator.Extensions.Composition
 {
     class ContainerWrapper : IContainer
     {
