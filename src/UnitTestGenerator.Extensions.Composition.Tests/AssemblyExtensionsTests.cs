@@ -1,37 +1,26 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using UnitTestGenerator;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TestAssembly;
 using Rhino.Mocks;
 using UnitTestGenerator.CodeGeneration;
+using TestAssembly;
 using FluentAssertions;
 using UnitTestGenerator.UnitTestGeneration;
-using UnitTestGenerator.Integration;
 
-namespace UnitTestGenerator.Tests
+namespace UnitTestGenerator.Extensions.Composition.Tests
 {
     [TestClass()]
-    public class UnitTestBuilderExtensionsTests
+    public class AssemblyExtensionsTests
     {
-        //[TestMethod()]
-        //public void UseBuiltinGeneratorsTest()
-        //{
-        //    Assert.Fail();
-        //}
-
         [TestMethod()]
-        public void Scan_Always_ShouldReturnTestClassBuilder()
+        public void ComposeTestClassBuilder_Always_ShouldReturnTestClassBuilder()
         {
             var mockExpressionProvider = MockRepository.GenerateMock<IMockExpressionProvider>();
             var valueExpressionProvider = MockRepository.GenerateMock<IValueExpressionProvider>();
             var testMethodGenerator = MockRepository.GenerateMock<ITestMethodGenerator>();
 
             var builder = typeof(PublicClass).Assembly
-               .Scan(typeof(UnitTestBuilderExtensionsTests).Assembly.GetName().Name,
+               .ComposeTestClassBuilder(typeof(AssemblyExtensionsTests).Assembly.GetName().Name,
                    mockExpressionProvider,
                    valueExpressionProvider,
                    configurator => configurator.AddGenerator(testMethodGenerator)
@@ -41,11 +30,5 @@ namespace UnitTestGenerator.Tests
 
             builder.Should().NotBeNull();
         }
-
-        //[TestMethod()]
-        //public void ScanTest1()
-        //{
-        //    Assert.Fail();
-        //}
     }
 }
