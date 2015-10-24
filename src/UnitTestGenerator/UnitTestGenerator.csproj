@@ -100,9 +100,6 @@
     <Compile Include="Value.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\author.licenseheader">
-      <Link>author.licenseheader</Link>
-    </None>
     <None Include="packages.config" />
     <None Include="UnitTestGenerator.ruleset" />
   </ItemGroup>
