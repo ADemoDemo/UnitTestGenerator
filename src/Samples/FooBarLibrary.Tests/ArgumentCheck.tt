@@ -1,4 +1,4 @@
-﻿<#@ template debug="true" hostspecific="true" language="C#" #>
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
 <#@ output extension=".cs" #>
 <#@ assembly name="System.Core" #>
 <#@ assembly name="EnvDte" #>
@@ -7,9 +7,9 @@
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="System.Reflection" #>
 <#@ import namespace="EnvDTE" #>
-<#@ Assembly Name="$(SolutionDir)Samples\FooBarLibrary\bin\Debug\FooBarLibrary.dll" #>
-<#@ Assembly Name="$(SolutionDir)UnitTestGenerator\bin\Debug\UnitTestGenerator.dll" #>
-<#@ Assembly Name="$(SolutionDir)UnitTestGenerator.Extensions.Composition\bin\Debug\UnitTestGenerator.Extensions.Composition.dll" #>
+<#@ Assembly Name="$(SolutionDir)FooBarLibrary\bin\Debug\FooBarLibrary.dll" #>
+<#@ Assembly Name="$(SolutionDir)FooBarLibrary.Tests\bin\Debug\UnitTestGenerator.dll" #>
+<#@ Assembly Name="$(SolutionDir)FooBarLibrary.Tests\bin\Debug\UnitTestGenerator.Extensions.Composition.dll" #>
 <#@ import namespace="UnitTestGenerator" #>
 <#@ import namespace="UnitTestGenerator.Extensions.Composition" #>
 <#@ import namespace="FooBarLibrary" #>
