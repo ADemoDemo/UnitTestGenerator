@@ -16,25 +16,32 @@
  * ***************************************************************************/
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using UnitTestGenerator.CodeGeneration;
 
 namespace UnitTestGenerator.ExpressionProviders
 {
-    public class AutoFixtureValueExpressionProvider : IValueExpressionProvider
+    /// <summary>
+    /// Provides Expression for obtaining primitive values using <see cref="Value"/> class.
+    /// </summary>
+    public class ValueExpressionProvider : IValueExpressionProvider
     {
         private readonly MethodInfo createmethod;
 
-        public AutoFixtureValueExpressionProvider()
+        /// <summary>
+        /// Initializes a new instance of the ValueExpressionProvider class.
+        /// </summary>
+        public ValueExpressionProvider()
         {
             createmethod = ExtractGenericMethod(() => Value.Create<string>());
         }
 
+        /// <summary>
+        /// Creates an <see cref="Expression"/> which calls Create method on <see cref="Value"/>.
+        /// </summary>
+        /// <param name="forType">The type for which the expression is created.</param>
+        /// <returns>The created expression.</returns>
         public Expression CreateValueExpression(Type forType)
         {
             var genericMethod = createmethod.MakeGenericMethod(forType);

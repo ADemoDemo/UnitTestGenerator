@@ -19,7 +19,7 @@ namespace UnitTestGenerator.Tests
             var tests = typeof(PublicClass).Assembly
                 .Scan(typeof(IntegrationTests).Assembly.GetName().Name,
                     new CastleMockProvider(),
-                    new AutoFixtureValueExpressionProvider())
+                    new ValueExpressionProvider())
                 .BuildTestClasses();
         }
 
@@ -31,7 +31,7 @@ namespace UnitTestGenerator.Tests
             var tests = typeof(TestClassBuilder).Assembly
                 .Scan(typeof(IntegrationTests).Assembly.GetName().Name,
                     new CastleMockProvider(),
-                    new AutoFixtureValueExpressionProvider(),
+                    new ValueExpressionProvider(),
                     configure => configure
                         .UseBuiltinGenerators()
                         .WithDefaultValues(new[] {

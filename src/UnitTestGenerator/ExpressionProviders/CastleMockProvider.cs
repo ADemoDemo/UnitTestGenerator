@@ -16,24 +16,26 @@
  * ***************************************************************************/
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using UnitTestGenerator.CodeGeneration;
 using UnitTestGenerator.DynamicProxy;
 
 namespace UnitTestGenerator.ExpressionProviders
 {
+    /// <summary>
+    /// Provides expressions obtaining instance of desired type.
+    /// </summary>
     public class CastleMockProvider : IMockExpressionProvider
     {
+        /// <summary>
+        /// Provides expressions obtaining instance of desired type.
+        /// </summary>
+        /// <param name="forType">The type which the expression should create.</param>
+        /// <returns>The created expression.</returns>
         public Expression CreateMockExpression(Type forType)
         {
             Func<CastleMockProvider> func = ProxyGenerator.CreateProxy<CastleMockProvider>;
             var method = func.Method.GetGenericMethodDefinition();
-            //var proxyGeneratorType = typeof(ProxyGenerator);
-            //var method = proxyGeneratorType.GetMethods().Single(x => x.IsGenericMethod);
             var genericMethod = method.MakeGenericMethod(forType);
             return Expression.Call(null, genericMethod);
         }

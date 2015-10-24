@@ -28,7 +28,6 @@ namespace UnitTestGenerator
     public class AssemblyTraverser : IAssemblyTraverser, IAssemblyTraverserConfigurator
     {
         private Assembly targetAssembly;
-        private IDictionary<Type, IList<Type>> baseTypeMap;
         private IEnumerable<Type> excludingTypes = new Type[0];
         private readonly bool internalsVisible;
         private readonly Func<Type, bool> typeFilter;
@@ -86,19 +85,6 @@ namespace UnitTestGenerator
         void IAssemblyTraverserConfigurator.Exclude(IEnumerable<Type> excluding)
         {
             this.excludingTypes = excluding.Concat(excludingTypes).Distinct().ToArray();
-            ClearTypeMap();
-        }
-
-        private IDictionary<Type, IList<Type>> BaseTypeMap
-        {
-            get
-            {
-                if (baseTypeMap == null)
-                {
-                    baseTypeMap = CreateTypeMap();
-                }
-                return baseTypeMap;
-            }
         }
 
         bool IAssemblyTraverser.InternalsVisible
@@ -107,35 +93,6 @@ namespace UnitTestGenerator
             {
                 return internalsVisible;
             }
-        }
-
-        private void ClearTypeMap()
-        {
-            baseTypeMap = null;
-        }
-
-        private IDictionary<Type, IList<Type>> CreateTypeMap()
-        {
-            var map = new Dictionary<Type, IList<Type>>();
-            foreach (var t in GetTypes())
-            {
-                foreach (var baze in GetBaseTypes(t).Concat(t.GetInterfaces()))
-                {
-                    IList<Type> types;
-                    if (map.ContainsKey(baze))
-                    {
-                        types = map[baze];
-                    }
-                    else
-                    {
-                        types = new List<Type>();
-                        map.Add(baze, types);
-                    }
-                    types.Add(t);
-                }
-
-            }
-            return map;
         }
 
         private static bool DefaultTypeFilter(Type x)

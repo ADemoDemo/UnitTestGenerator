@@ -67,7 +67,7 @@
     <Compile Include="DynamicProxy\CastleProxyGenerator.cs" />
     <Compile Include="DynamicProxy\ProxyGeneratorException.cs" />
     <Compile Include="DynamicProxy\TypeAccessiblityException.cs" />
-    <Compile Include="ExpressionProviders\AutoFixtureValueExpressionProvider.cs" />
+    <Compile Include="ExpressionProviders\ValueExpressionProvider.cs" />
     <Compile Include="ExpressionProviders\CastleMockProvider.cs" />
     <Compile Include="DynamicProxy\ProxyGenerator.cs" />
     <Compile Include="Strings.cs" />

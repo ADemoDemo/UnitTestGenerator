@@ -25,10 +25,18 @@ using System.Threading.Tasks;
 
 namespace UnitTestGenerator.DynamicProxy
 {
+    /// <summary>
+    /// Castle <see cref="Castle.DynamicProxy.ProxyGenerator"/> facade.
+    /// </summary>
     public class CastleProxyGenerator
     {
         Castle.DynamicProxy.ProxyGenerator generator = new Castle.DynamicProxy.ProxyGenerator();
 
+        /// <summary>
+        /// Creates an instance of proxy class.
+        /// </summary>
+        /// <typeparam name="TType">The type from which the proxy class is inherited.</typeparam>
+        /// <returns>The proxy class instance.</returns>
         public TType CreateClassProxy<TType>()
             where TType : class
         {
@@ -36,6 +44,11 @@ namespace UnitTestGenerator.DynamicProxy
             return (TType)CreateClassProxy(targetType);
         }
 
+        /// <summary>
+        /// Creates an instance of proxy class.
+        /// </summary>
+        /// <param name="targetType">The type from which the proxy class is inherited.</param>
+        /// <returns>The proxy class instance.</returns>
         public object CreateClassProxy(Type targetType)
         {
             Check.NotNull(targetType, nameof(targetType));
@@ -120,21 +133,5 @@ namespace UnitTestGenerator.DynamicProxy
         {
             return targetType.Assembly.GetCustomAttributes<InternalsVisibleToAttribute>().Any(attr => attr.AssemblyName == "DynamicProxyGenAssembly2");
         }
-
-        //private bool CheckIfSystem(Type t, ref object result)
-        //{
-        //    if (t == typeof(MemberInfo))
-        //    {
-        //        Func<string, string> method = string.Copy;
-        //        result = method.Method;
-        //        return true;
-        //    }
-        //    else if (t == typeof(Type))
-        //    {
-        //        result = typeof(string);
-        //        return true;
-        //    }
-        //    return false;
-        //}
     }
 }

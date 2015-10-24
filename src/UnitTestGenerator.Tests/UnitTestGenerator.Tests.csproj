@@ -89,6 +89,9 @@
     <Compile Include="CodeGeneration\Generators\NullArgumentMethodTestMethodSourceCodeGeneratorTests.cs" />
     <Compile Include="DynamicProxy\CastleProxyGeneratorTests.cs" />
     <Compile Include="DynamicProxy\FluentAssertionsExtensions.cs" />
+    <Compile Include="DynamicProxy\ProxyGeneratorTests.cs" />
+    <Compile Include="ExpressionProviders\CastleMockProviderTests.cs" />
+    <Compile Include="ExpressionProviders\ValueExpressionProviderTests.cs" />
     <Compile Include="ParameterExpressionBuilderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringExtensionsTests.cs" />

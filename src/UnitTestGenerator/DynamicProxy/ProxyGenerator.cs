@@ -23,15 +23,28 @@ using System.Threading.Tasks;
 
 namespace UnitTestGenerator.DynamicProxy
 {
+    /// <summary>
+    /// Static helper methods which use <see cref="CastleProxyGenerator"/>.
+    /// </summary>
     public static class ProxyGenerator
     {
         static CastleProxyGenerator generator = new CastleProxyGenerator();
 
+        /// <summary>
+        /// Creates an instance of proxy class.
+        /// </summary>
+        /// <param name="targetType">The type from which the proxy class is inherited.</param>
+        /// <returns>The proxy class instance.</returns>
         public static object CreateProxy(Type type)
         {
             return generator.CreateClassProxy(type);
         }
 
+        /// <summary>
+        /// Creates an instance of proxy class.
+        /// </summary>
+        /// <typeparam name="TType">The type from which the proxy class is inherited.</typeparam>
+        /// <returns>The proxy class instance.</returns>
         public static TType CreateProxy<TType>()
             where TType : class
         {

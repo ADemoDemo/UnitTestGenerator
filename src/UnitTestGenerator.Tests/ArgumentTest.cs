@@ -292,7 +292,7 @@ using UnitTestGenerator.ExpressionProviders;
                 [ExpectedException(typeof(System.ArgumentNullException))]
                 public void CreateValueExpression_ForTypeNullValueGiven_ShouldThrowArgumentNullException()
                 {
-                    var autoFixtureValueExpressionProvider = new AutoFixtureValueExpressionProvider();		 
+                    var autoFixtureValueExpressionProvider = new ValueExpressionProvider();		 
                     autoFixtureValueExpressionProvider.CreateValueExpression(null);		 
                 }
 

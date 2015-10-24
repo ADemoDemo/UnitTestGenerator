@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using UnitTestGenerator.DynamicProxy;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TestAssembly;
 using FluentAssertions;
 using System.Reflection;
@@ -192,7 +193,6 @@ namespace UnitTestGenerator.DynamicProxy.Tests
         public void Initialize()
         {
             generator = new CastleProxyGenerator();
-
         }
     }
 }
