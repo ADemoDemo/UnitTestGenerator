@@ -10,7 +10,7 @@ using UnitTestGenerator;
                 [TestMethod]
                 [TestCategory("UnitTestGenerator.ArgumentCheck")]
                 [ExpectedException(typeof(System.ArgumentNullException))]
-                public void Concatb0c5332e()
+                public void Concat30edf6bb()
                 {
                     var foo = new Foo();		 
                     foo.Concat(null, Value.Create<string>());		 
@@ -19,7 +19,7 @@ using UnitTestGenerator;
                 [TestMethod]
                 [TestCategory("UnitTestGenerator.ArgumentCheck")]
                 [ExpectedException(typeof(System.ArgumentNullException))]
-                public void Concat9847491d()
+                public void Concat2e66ca90()
                 {
                     var foo = new Foo();		 
                     foo.Concat(Value.Create<string>(), null);		 
@@ -28,28 +28,37 @@ using UnitTestGenerator;
                 [TestMethod]
                 [TestCategory("UnitTestGenerator.ArgumentCheck")]
                 [ExpectedException(typeof(System.ArgumentNullException))]
-                public void Concat21fe1e0cb()
+                public void Concatfe340ef0()
                 {
                     var foo = new Foo();		 
-                    foo.Concat2(null, Value.Create<string>(), Value.Create<string>());		 
+                    foo.Concat(null, Value.Create<string>(), Value.Create<string>());		 
                 }
 
                 [TestMethod]
                 [TestCategory("UnitTestGenerator.ArgumentCheck")]
                 [ExpectedException(typeof(System.ArgumentNullException))]
-                public void Concat2c6dcbdc6()
+                public void Concat353424e8()
                 {
                     var foo = new Foo();		 
-                    foo.Concat2(Value.Create<string>(), null, Value.Create<string>());		 
+                    foo.Concat(Value.Create<string>(), null, Value.Create<string>());		 
                 }
 
                 [TestMethod]
                 [TestCategory("UnitTestGenerator.ArgumentCheck")]
                 [ExpectedException(typeof(System.ArgumentNullException))]
-                public void Concat212e800f5()
+                public void Concat8187436f()
                 {
                     var foo = new Foo();		 
-                    foo.Concat2(Value.Create<string>(), Value.Create<string>(), null);		 
+                    foo.Concat(Value.Create<string>(), Value.Create<string>(), null);		 
+                }
+
+                [TestMethod]
+                [TestCategory("UnitTestGenerator.ArgumentCheck")]
+                [ExpectedException(typeof(System.ArgumentNullException))]
+                public void Lowercase76b63e4a()
+                {
+                    var foo = new Foo();		 
+                    foo.Lowercase(null);		 
                 }
 
             }

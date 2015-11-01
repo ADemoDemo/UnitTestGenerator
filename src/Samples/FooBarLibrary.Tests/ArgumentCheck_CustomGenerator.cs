@@ -19,11 +19,11 @@ using UnitTestGenerator;
 
                 [TestMethod]
                 [TestCategory("UnitTestGenerator.ArgumentCheck")]
-                public void Concat2()
+                public void Concat()
                 {
                     //TODO: Arrange		 
                     //TODO: Act		 
-                    //TODO: call Concat2		 
+                    //TODO: call Concat		 
                     //TODO: Assert		 
                 }
 

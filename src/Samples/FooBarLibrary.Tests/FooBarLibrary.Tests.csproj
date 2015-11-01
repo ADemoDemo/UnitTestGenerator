@@ -49,12 +49,12 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="UnitTestGenerator, Version=0.4.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UnitTestGenerator.0.4.2.0\lib\net45\UnitTestGenerator.dll</HintPath>
+    <Reference Include="UnitTestGenerator, Version=0.4.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UnitTestGenerator.0.4.3.0\lib\net45\UnitTestGenerator.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="UnitTestGenerator.Extensions.Composition, Version=0.4.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UnitTestGenerator.Extensions.Composition.0.4.0.0\lib\net45\UnitTestGenerator.Extensions.Composition.dll</HintPath>
+    <Reference Include="UnitTestGenerator.Extensions.Composition, Version=0.4.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UnitTestGenerator.Extensions.Composition.0.4.3.0\lib\net45\UnitTestGenerator.Extensions.Composition.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>

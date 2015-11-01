@@ -10,7 +10,7 @@ using UnitTestGenerator;
                 [TestMethod]
                 [TestCategory("UnitTestGenerator.ArgumentCheck")]
                 [ExpectedException(typeof(System.ArgumentNullException))]
-                public void Concat_StrANullValueGiven_ShouldThrowArgumentNullException()
+                public void Concat_StringString_StrANullValueGiven_ShouldThrowArgumentNullException()
                 {
                     var foo = new Foo();		 
                     foo.Concat(null, "abc");		 
@@ -19,7 +19,7 @@ using UnitTestGenerator;
                 [TestMethod]
                 [TestCategory("UnitTestGenerator.ArgumentCheck")]
                 [ExpectedException(typeof(System.ArgumentNullException))]
-                public void Concat_StrBNullValueGiven_ShouldThrowArgumentNullException()
+                public void Concat_StringString_StrBNullValueGiven_ShouldThrowArgumentNullException()
                 {
                     var foo = new Foo();		 
                     foo.Concat("abc", null);		 
@@ -28,28 +28,37 @@ using UnitTestGenerator;
                 [TestMethod]
                 [TestCategory("UnitTestGenerator.ArgumentCheck")]
                 [ExpectedException(typeof(System.ArgumentNullException))]
-                public void Concat2_StrANullValueGiven_ShouldThrowArgumentNullException()
+                public void Concat_StringStringString_StrANullValueGiven_ShouldThrowArgumentNullException()
                 {
                     var foo = new Foo();		 
-                    foo.Concat2(null, "abc", "abc");		 
+                    foo.Concat(null, "abc", "abc");		 
                 }
 
                 [TestMethod]
                 [TestCategory("UnitTestGenerator.ArgumentCheck")]
                 [ExpectedException(typeof(System.ArgumentNullException))]
-                public void Concat2_StrBNullValueGiven_ShouldThrowArgumentNullException()
+                public void Concat_StringStringString_StrBNullValueGiven_ShouldThrowArgumentNullException()
                 {
                     var foo = new Foo();		 
-                    foo.Concat2("abc", null, "abc");		 
+                    foo.Concat("abc", null, "abc");		 
                 }
 
                 [TestMethod]
                 [TestCategory("UnitTestGenerator.ArgumentCheck")]
                 [ExpectedException(typeof(System.ArgumentNullException))]
-                public void Concat2_StrCNullValueGiven_ShouldThrowArgumentNullException()
+                public void Concat_StringStringString_StrCNullValueGiven_ShouldThrowArgumentNullException()
                 {
                     var foo = new Foo();		 
-                    foo.Concat2("abc", "abc", null);		 
+                    foo.Concat("abc", "abc", null);		 
+                }
+
+                [TestMethod]
+                [TestCategory("UnitTestGenerator.ArgumentCheck")]
+                [ExpectedException(typeof(System.ArgumentNullException))]
+                public void Lowercase_ValueNullValueGiven_ShouldThrowArgumentNullException()
+                {
+                    var foo = new Foo();		 
+                    foo.Lowercase(null);		 
                 }
 
             }

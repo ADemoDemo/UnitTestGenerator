@@ -11,9 +11,14 @@
             return strA + strB;
         }
 
-        public string Concat2(string strA, string strB, string strC)
+        public string Concat(string strA, string strB, string strC)
         {
             return strA + strB + strC;
+        }
+
+        public string Lowercase(string value)
+        {
+            return value.ToLowerInvariant();
         }
     }
 }
