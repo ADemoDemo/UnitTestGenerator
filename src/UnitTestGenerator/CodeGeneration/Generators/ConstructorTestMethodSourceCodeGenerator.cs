@@ -62,7 +62,7 @@ namespace UnitTestGenerator.CodeGeneration.Generators
         {
             if (request.HasMultipleConstructors)
             {
-                return "_" + string.Join("_", request.Constructor.GetParameters().Select(x => GetSafeTypeName(x.ParameterType)).ToArray());
+                return "_" + string.Join("_", request.Constructor.GetParameters().Select(x => GetSafeTypeName(x.ParameterType)).ToArray()) + "_";
             }
             return "";
         }

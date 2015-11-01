@@ -19,7 +19,7 @@ using UnitTestGenerator.ExpressionProviders;
                 [TestMethod]
                 [TestCategory("UnitTestGenerator.ArgumentCheck")]
                 [ExpectedException(typeof(System.ArgumentNullException))]
-                public void TestMethod_Constructor_TestedMemberNullValueGiven_ShouldThrowArgumentNullException()
+                public void Constructor_TestedMemberNullValueGiven_ShouldThrowArgumentNullException()
                 {
                     new TestMethod(null, Value.Create<string>(), Value.Create<string>(), typeof(string));		 
                 }
@@ -27,7 +27,7 @@ using UnitTestGenerator.ExpressionProviders;
                 [TestMethod]
                 [TestCategory("UnitTestGenerator.ArgumentCheck")]
                 [ExpectedException(typeof(System.ArgumentNullException))]
-                public void TestMethod_Constructor_NameNullValueGiven_ShouldThrowArgumentNullException()
+                public void Constructor_NameNullValueGiven_ShouldThrowArgumentNullException()
                 {
                     new TestMethod(typeof(string).GetMethods()[0], null, Value.Create<string>(), typeof(string));		 
                 }
@@ -35,7 +35,7 @@ using UnitTestGenerator.ExpressionProviders;
                 [TestMethod]
                 [TestCategory("UnitTestGenerator.ArgumentCheck")]
                 [ExpectedException(typeof(System.ArgumentNullException))]
-                public void TestMethod_Constructor_SourceCodeNullValueGiven_ShouldThrowArgumentNullException()
+                public void Constructor_SourceCodeNullValueGiven_ShouldThrowArgumentNullException()
                 {
                     new TestMethod(typeof(string).GetMethods()[0], Value.Create<string>(), null, typeof(string));		 
                 }
@@ -83,7 +83,7 @@ using UnitTestGenerator.ExpressionProviders;
                 [TestMethod]
                 [TestCategory("UnitTestGenerator.ArgumentCheck")]
                 [ExpectedException(typeof(System.ArgumentNullException))]
-                public void AssemblyTraverser_Constructor_TargetAssemblyNullValueGiven_ShouldThrowArgumentNullException()
+                public void Constructor_TargetAssemblyNullValueGiven_ShouldThrowArgumentNullException()
                 {
                     new AssemblyTraverser(null, Param_0 => Value.Create<bool>(), Value.Create<bool>());		 
                 }
@@ -91,7 +91,7 @@ using UnitTestGenerator.ExpressionProviders;
                 [TestMethod]
                 [TestCategory("UnitTestGenerator.ArgumentCheck")]
                 [ExpectedException(typeof(System.ArgumentNullException))]
-                public void AssemblyTraverser_Constructor_TypeFilterNullValueGiven_ShouldThrowArgumentNullException()
+                public void Constructor_TypeFilterNullValueGiven_ShouldThrowArgumentNullException()
                 {
                     new AssemblyTraverser(typeof(string).Assembly, null, Value.Create<bool>());		 
                 }
@@ -172,7 +172,7 @@ using UnitTestGenerator.ExpressionProviders;
                 [TestMethod]
                 [TestCategory("UnitTestGenerator.ArgumentCheck")]
                 [ExpectedException(typeof(System.ArgumentNullException))]
-                public void TestClassBuilder_Constructor_TraverserNullValueGiven_ShouldThrowArgumentNullException()
+                public void Constructor_TraverserNullValueGiven_ShouldThrowArgumentNullException()
                 {
                     new TestClassBuilder(null, new [] {ProxyGenerator.CreateProxy<ITestMethodGenerator>(), ProxyGenerator.CreateProxy<ITestMethodGenerator>()});		 
                 }
@@ -180,7 +180,7 @@ using UnitTestGenerator.ExpressionProviders;
                 [TestMethod]
                 [TestCategory("UnitTestGenerator.ArgumentCheck")]
                 [ExpectedException(typeof(System.ArgumentNullException))]
-                public void TestClassBuilder_Constructor_TestGeneratorsNullValueGiven_ShouldThrowArgumentNullException()
+                public void Constructor_TestGeneratorsNullValueGiven_ShouldThrowArgumentNullException()
                 {
                     new TestClassBuilder(ProxyGenerator.CreateProxy<IAssemblyTraverser>(), null);		 
                 }
@@ -196,7 +196,7 @@ using UnitTestGenerator.ExpressionProviders;
                 [TestMethod]
                 [TestCategory("UnitTestGenerator.ArgumentCheck")]
                 [ExpectedException(typeof(System.ArgumentNullException))]
-                public void TypeContext_Constructor_TargetTypeNullValueGiven_ShouldThrowArgumentNullException()
+                public void Constructor_TargetTypeNullValueGiven_ShouldThrowArgumentNullException()
                 {
                     new TypeContext(null, Value.Create<bool>());		 
                 }
@@ -212,7 +212,7 @@ using UnitTestGenerator.ExpressionProviders;
                 [TestMethod]
                 [TestCategory("UnitTestGenerator.ArgumentCheck")]
                 [ExpectedException(typeof(System.ArgumentNullException))]
-                public void ConstructorMetadata_Constructor_ConstructorNullValueGiven_ShouldThrowArgumentNullException()
+                public void Constructor_ConstructorNullValueGiven_ShouldThrowArgumentNullException()
                 {
                     new ConstructorMetadata(null, Value.Create<bool>(), Value.Create<bool>());		 
                 }
@@ -228,7 +228,7 @@ using UnitTestGenerator.ExpressionProviders;
                 [TestMethod]
                 [TestCategory("UnitTestGenerator.ArgumentCheck")]
                 [ExpectedException(typeof(System.ArgumentNullException))]
-                public void MethodMetadata_Constructor_MethodNullValueGiven_ShouldThrowArgumentNullException()
+                public void Constructor_MethodNullValueGiven_ShouldThrowArgumentNullException()
                 {
                     new MethodMetadata(null, Value.Create<bool>(), Value.Create<bool>());		 
                 }
@@ -252,7 +252,7 @@ using UnitTestGenerator.ExpressionProviders;
                 [TestMethod]
                 [TestCategory("UnitTestGenerator.ArgumentCheck")]
                 [ExpectedException(typeof(System.ArgumentNullException))]
-                public void NullArgumentConstructorTestMethodGenerator_Constructor_NullArgumentConstructorTestMethodSourceCodeGeneratorNullValueGiven_ShouldThrowArgumentNullException()
+                public void Constructor_NullArgumentConstructorTestMethodSourceCodeGeneratorNullValueGiven_ShouldThrowArgumentNullException()
                 {
                     new NullArgumentConstructorTestMethodGenerator(null);		 
                 }
@@ -276,7 +276,7 @@ using UnitTestGenerator.ExpressionProviders;
                 [TestMethod]
                 [TestCategory("UnitTestGenerator.ArgumentCheck")]
                 [ExpectedException(typeof(System.ArgumentNullException))]
-                public void NullArgumentMethodTestMethodGenerator_Constructor_NullArgumentMethodTestMethodSourceCodeGeneratorNullValueGiven_ShouldThrowArgumentNullException()
+                public void Constructor_NullArgumentMethodTestMethodSourceCodeGeneratorNullValueGiven_ShouldThrowArgumentNullException()
                 {
                     new NullArgumentMethodTestMethodGenerator(null);		 
                 }
@@ -343,7 +343,7 @@ using UnitTestGenerator.ExpressionProviders;
                 [TestMethod]
                 [TestCategory("UnitTestGenerator.ArgumentCheck")]
                 [ExpectedException(typeof(System.ArgumentNullException))]
-                public void DefaultValueForTypeMapper_Constructor_ParameterMappingNullValueGiven_ShouldThrowArgumentNullException()
+                public void Constructor_ParameterMappingNullValueGiven_ShouldThrowArgumentNullException()
                 {
                     new DefaultValueForTypeMapper(null, new [] {(Expression<Func<string>>)(() => string.Empty), (Expression<Func<string>>)(() => string.Empty)});		 
                 }
@@ -351,7 +351,7 @@ using UnitTestGenerator.ExpressionProviders;
                 [TestMethod]
                 [TestCategory("UnitTestGenerator.ArgumentCheck")]
                 [ExpectedException(typeof(System.ArgumentNullException))]
-                public void DefaultValueForTypeMapper_Constructor_DefaultValuesNullValueGiven_ShouldThrowArgumentNullException()
+                public void Constructor_DefaultValuesNullValueGiven_ShouldThrowArgumentNullException()
                 {
                     new DefaultValueForTypeMapper(new Dictionary<Type, string>(), null);		 
                 }
@@ -403,7 +403,7 @@ using UnitTestGenerator.ExpressionProviders;
                 [TestMethod]
                 [TestCategory("UnitTestGenerator.ArgumentCheck")]
                 [ExpectedException(typeof(System.ArgumentNullException))]
-                public void ExpressionBuilder_Constructor_TestMethodValueProviderNullValueGiven_ShouldThrowArgumentNullException()
+                public void Constructor_TestMethodValueProviderNullValueGiven_ShouldThrowArgumentNullException()
                 {
                     new ExpressionBuilder(null, ProxyGenerator.CreateProxy<IMockExpressionProvider>(), ProxyGenerator.CreateProxy<IValueExpressionProvider>(), ProxyGenerator.CreateProxy<IIdentifierValidator>());		 
                 }
@@ -411,7 +411,7 @@ using UnitTestGenerator.ExpressionProviders;
                 [TestMethod]
                 [TestCategory("UnitTestGenerator.ArgumentCheck")]
                 [ExpectedException(typeof(System.ArgumentNullException))]
-                public void ExpressionBuilder_Constructor_MockProviderNullValueGiven_ShouldThrowArgumentNullException()
+                public void Constructor_MockProviderNullValueGiven_ShouldThrowArgumentNullException()
                 {
                     new ExpressionBuilder(ProxyGenerator.CreateProxy<ITestMethodValueProvider>(), null, ProxyGenerator.CreateProxy<IValueExpressionProvider>(), ProxyGenerator.CreateProxy<IIdentifierValidator>());		 
                 }
@@ -419,7 +419,7 @@ using UnitTestGenerator.ExpressionProviders;
                 [TestMethod]
                 [TestCategory("UnitTestGenerator.ArgumentCheck")]
                 [ExpectedException(typeof(System.ArgumentNullException))]
-                public void ExpressionBuilder_Constructor_ValueExpressionProviderNullValueGiven_ShouldThrowArgumentNullException()
+                public void Constructor_ValueExpressionProviderNullValueGiven_ShouldThrowArgumentNullException()
                 {
                     new ExpressionBuilder(ProxyGenerator.CreateProxy<ITestMethodValueProvider>(), ProxyGenerator.CreateProxy<IMockExpressionProvider>(), null, ProxyGenerator.CreateProxy<IIdentifierValidator>());		 
                 }
@@ -427,7 +427,7 @@ using UnitTestGenerator.ExpressionProviders;
                 [TestMethod]
                 [TestCategory("UnitTestGenerator.ArgumentCheck")]
                 [ExpectedException(typeof(System.ArgumentNullException))]
-                public void ExpressionBuilder_Constructor_IdentifierValidatorNullValueGiven_ShouldThrowArgumentNullException()
+                public void Constructor_IdentifierValidatorNullValueGiven_ShouldThrowArgumentNullException()
                 {
                     new ExpressionBuilder(ProxyGenerator.CreateProxy<ITestMethodValueProvider>(), ProxyGenerator.CreateProxy<IMockExpressionProvider>(), ProxyGenerator.CreateProxy<IValueExpressionProvider>(), null);		 
                 }
@@ -443,7 +443,7 @@ using UnitTestGenerator.ExpressionProviders;
                 [TestMethod]
                 [TestCategory("UnitTestGenerator.ArgumentCheck")]
                 [ExpectedException(typeof(System.ArgumentNullException))]
-                public void ConstructorSourceCodeGenerationRequest_Constructor_ConstructorNullValueGiven_ShouldThrowArgumentNullException()
+                public void Constructor_ConstructorNullValueGiven_ShouldThrowArgumentNullException()
                 {
                     new ConstructorSourceCodeGenerationRequest(null, Value.Create<bool>(), Value.Create<bool>(), ProxyGenerator.CreateProxy<ParameterInfo>());		 
                 }
@@ -459,7 +459,7 @@ using UnitTestGenerator.ExpressionProviders;
                 [TestMethod]
                 [TestCategory("UnitTestGenerator.ArgumentCheck")]
                 [ExpectedException(typeof(System.ArgumentNullException))]
-                public void MethodSourceCodeGenerationRequest_Constructor_MethodNullValueGiven_ShouldThrowArgumentNullException()
+                public void Constructor_MethodNullValueGiven_ShouldThrowArgumentNullException()
                 {
                     new MethodSourceCodeGenerationRequest(null, Value.Create<bool>(), ProxyGenerator.CreateProxy<ParameterInfo>(), Value.Create<bool>());		 
                 }
@@ -484,7 +484,7 @@ using UnitTestGenerator.ExpressionProviders;
                 [TestMethod]
                 [TestCategory("UnitTestGenerator.ArgumentCheck")]
                 [ExpectedException(typeof(System.ArgumentNullException))]
-                public void NullArgumentConstructorTestMethodSourceCodeGenerator_Constructor_ExpressionBuilderNullValueGiven_ShouldThrowArgumentNullException()
+                public void Constructor_ExpressionBuilderNullValueGiven_ShouldThrowArgumentNullException()
                 {
                     new NullArgumentConstructorTestMethodSourceCodeGenerator(null);		 
                 }
@@ -509,7 +509,7 @@ using UnitTestGenerator.ExpressionProviders;
                 [TestMethod]
                 [TestCategory("UnitTestGenerator.ArgumentCheck")]
                 [ExpectedException(typeof(System.ArgumentNullException))]
-                public void NullArgumentMethodTestMethodSourceCodeGenerator_Constructor_ExpressionBuilderNullValueGiven_ShouldThrowArgumentNullException()
+                public void Constructor_ExpressionBuilderNullValueGiven_ShouldThrowArgumentNullException()
                 {
                     new NullArgumentMethodTestMethodSourceCodeGenerator(null, ProxyGenerator.CreateProxy<ITestMethodValueProvider>());		 
                 }
@@ -517,7 +517,7 @@ using UnitTestGenerator.ExpressionProviders;
                 [TestMethod]
                 [TestCategory("UnitTestGenerator.ArgumentCheck")]
                 [ExpectedException(typeof(System.ArgumentNullException))]
-                public void NullArgumentMethodTestMethodSourceCodeGenerator_Constructor_TestMethodValueProviderNullValueGiven_ShouldThrowArgumentNullException()
+                public void Constructor_TestMethodValueProviderNullValueGiven_ShouldThrowArgumentNullException()
                 {
                     new NullArgumentMethodTestMethodSourceCodeGenerator(ProxyGenerator.CreateProxy<IExpressionBuilder>(), null);		 
                 }

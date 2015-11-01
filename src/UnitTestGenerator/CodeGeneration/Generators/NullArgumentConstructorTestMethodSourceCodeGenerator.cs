@@ -55,7 +55,7 @@ namespace UnitTestGenerator.CodeGeneration.Generators
             Check.NotNull(request, "request");
 
             string ctorName = BuildConstructorName(request);
-            return request.Constructor.DeclaringType.Name + "_Constructor_" + ctorName + request.ParameterDestinedAsNull.Name.Capitalize() + "NullValueGiven_ShouldThrowArgumentNullException";
+            return "Constructor_" + ctorName + request.ParameterDestinedAsNull.Name.Capitalize() + "NullValueGiven_ShouldThrowArgumentNullException";
         }
     }
 }

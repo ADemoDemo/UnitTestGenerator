@@ -8,12 +8,12 @@ namespace TestAssembly
 {
     public class MultipleConstructors
     {
-        public MultipleConstructors(PublicClass internalClass)
+        public MultipleConstructors(PublicClass publicClass)
         {
 
         }
 
-        public MultipleConstructors(PublicClass internalClass, string name)
+        public MultipleConstructors(PublicClass publicClass, string name)
         {
 
         }

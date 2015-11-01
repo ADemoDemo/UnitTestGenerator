@@ -8,7 +8,7 @@ namespace TestAssembly
 {
     public class ClassContructor : BaseClass
     {
-        public ClassContructor(PublicClass internalClass)
+        public ClassContructor(PublicClass publicClass)
         {
 
         }
