@@ -28,5 +28,14 @@ namespace TestAssembly
 
         }
 
+        public string SameName(string name1, string name2)
+        {
+            return name1 + name2;
+        }
+
+        public string SameName(string name1, string name2, string name3)
+        {
+            return name1 + name2 + name3;
+        }
     }
 }
