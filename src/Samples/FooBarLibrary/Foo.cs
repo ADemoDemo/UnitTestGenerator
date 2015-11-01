@@ -11,9 +11,9 @@
             return strA + strB;
         }
 
-        public string Concat2(string strA, string strB)
+        public string Concat2(string strA, string strB, string strC)
         {
-            return strA + strB;
+            return strA + strB + strC;
         }
     }
 }

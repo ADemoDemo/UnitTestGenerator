@@ -5,7 +5,7 @@ using UnitTestGenerator;
         namespace FooBarLibrary.Tests
         {
             [TestClass]
-            public partial class FooTests
+            public partial class FooTestsDefaults
             {
                 [TestMethod]
                 [TestCategory("UnitTestGenerator.ArgumentCheck")]
@@ -13,7 +13,7 @@ using UnitTestGenerator;
                 public void Concat_StrANullValueGiven_ShouldThrowArgumentNullException()
                 {
                     var foo = new Foo();		 
-                    foo.Concat(null, Value.Create<string>());		 
+                    foo.Concat(null, "abc");		 
                 }
 
                 [TestMethod]
@@ -22,7 +22,7 @@ using UnitTestGenerator;
                 public void Concat_StrBNullValueGiven_ShouldThrowArgumentNullException()
                 {
                     var foo = new Foo();		 
-                    foo.Concat(Value.Create<string>(), null);		 
+                    foo.Concat("abc", null);		 
                 }
 
                 [TestMethod]
@@ -31,7 +31,7 @@ using UnitTestGenerator;
                 public void Concat2_StrANullValueGiven_ShouldThrowArgumentNullException()
                 {
                     var foo = new Foo();		 
-                    foo.Concat2(null, Value.Create<string>(), Value.Create<string>());		 
+                    foo.Concat2(null, "abc", "abc");		 
                 }
 
                 [TestMethod]
@@ -40,7 +40,7 @@ using UnitTestGenerator;
                 public void Concat2_StrBNullValueGiven_ShouldThrowArgumentNullException()
                 {
                     var foo = new Foo();		 
-                    foo.Concat2(Value.Create<string>(), null, Value.Create<string>());		 
+                    foo.Concat2("abc", null, "abc");		 
                 }
 
                 [TestMethod]
@@ -49,7 +49,7 @@ using UnitTestGenerator;
                 public void Concat2_StrCNullValueGiven_ShouldThrowArgumentNullException()
                 {
                     var foo = new Foo();		 
-                    foo.Concat2(Value.Create<string>(), Value.Create<string>(), null);		 
+                    foo.Concat2("abc", "abc", null);		 
                 }
 
             }

@@ -5,15 +5,14 @@ using UnitTestGenerator;
         namespace FooBarLibrary.Tests
         {
             [TestClass]
-            public partial class FooTests
+            public partial class FooTests_Reuse
             {
                 [TestMethod]
                 [TestCategory("UnitTestGenerator.ArgumentCheck")]
                 [ExpectedException(typeof(System.ArgumentNullException))]
                 public void Concat_StrANullValueGiven_ShouldThrowArgumentNullException()
                 {
-                    var foo = new Foo();		 
-                    foo.Concat(null, Value.Create<string>());		 
+                    fooInstance.Concat(null, Value.Create<string>());		 
                 }
 
                 [TestMethod]
@@ -21,8 +20,7 @@ using UnitTestGenerator;
                 [ExpectedException(typeof(System.ArgumentNullException))]
                 public void Concat_StrBNullValueGiven_ShouldThrowArgumentNullException()
                 {
-                    var foo = new Foo();		 
-                    foo.Concat(Value.Create<string>(), null);		 
+                    fooInstance.Concat(Value.Create<string>(), null);		 
                 }
 
                 [TestMethod]
@@ -30,8 +28,7 @@ using UnitTestGenerator;
                 [ExpectedException(typeof(System.ArgumentNullException))]
                 public void Concat2_StrANullValueGiven_ShouldThrowArgumentNullException()
                 {
-                    var foo = new Foo();		 
-                    foo.Concat2(null, Value.Create<string>(), Value.Create<string>());		 
+                    fooInstance.Concat2(null, Value.Create<string>(), Value.Create<string>());		 
                 }
 
                 [TestMethod]
@@ -39,8 +36,7 @@ using UnitTestGenerator;
                 [ExpectedException(typeof(System.ArgumentNullException))]
                 public void Concat2_StrBNullValueGiven_ShouldThrowArgumentNullException()
                 {
-                    var foo = new Foo();		 
-                    foo.Concat2(Value.Create<string>(), null, Value.Create<string>());		 
+                    fooInstance.Concat2(Value.Create<string>(), null, Value.Create<string>());		 
                 }
 
                 [TestMethod]
@@ -48,8 +44,7 @@ using UnitTestGenerator;
                 [ExpectedException(typeof(System.ArgumentNullException))]
                 public void Concat2_StrCNullValueGiven_ShouldThrowArgumentNullException()
                 {
-                    var foo = new Foo();		 
-                    foo.Concat2(Value.Create<string>(), Value.Create<string>(), null);		 
+                    fooInstance.Concat2(Value.Create<string>(), Value.Create<string>(), null);		 
                 }
 
             }

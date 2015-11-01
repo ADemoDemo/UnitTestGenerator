@@ -71,11 +71,35 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ArgumentCheck_NameChange.cs">
+      <DependentUpon>ArgumentCheck_NameChange.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ArgumentCheck_CustomGenerator.cs">
+      <DependentUpon>ArgumentCheck_CustomGenerator.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ArgumentCheckDefaults.cs">
+      <DependentUpon>ArgumentCheckDefaults.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ArgumentCheckReuse.cs">
+      <DependentUpon>ArgumentCheckReuse.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="ArgumentCheck.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ArgumentCheck.tt</DependentUpon>
     </Compile>
+    <Compile Include="CustomMethodNameCodeGenerator.cs" />
+    <Compile Include="CustomTestMethodGenerator.cs" />
+    <Compile Include="FooTests_Reuse.cs" />
+    <Compile Include="MyCustomCodeGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -85,6 +109,22 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ArgumentCheck_NameChange.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ArgumentCheck_NameChange.cs</LastGenOutput>
+    </Content>
+    <Content Include="ArgumentCheck_CustomGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ArgumentCheck_CustomGenerator.cs</LastGenOutput>
+    </Content>
+    <Content Include="ArgumentCheckDefaults.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ArgumentCheckDefaults.cs</LastGenOutput>
+    </Content>
+    <Content Include="ArgumentCheckReuse.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ArgumentCheckReuse.cs</LastGenOutput>
+    </Content>
     <Content Include="ArgumentCheck.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ArgumentCheck.cs</LastGenOutput>
