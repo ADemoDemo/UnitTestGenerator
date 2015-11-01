@@ -21,6 +21,7 @@ using System.Linq;
 using UnitTestGenerator;
 using UnitTestGenerator.CodeGeneration;
 using UnitTestGenerator.CodeGeneration.Generators;
+using UnitTestGenerator.ExpressionProviders;
 using UnitTestGenerator.UnitTestGeneration;
 
 namespace UnitTestGenerator.Extensions.Composition
@@ -66,6 +67,8 @@ namespace UnitTestGenerator.Extensions.Composition
             var wrapper = new ContainerWrapper(container);
             typeRegistration(wrapper);
             var registeredServices = wrapper.GetRegisteredServices();
+            wrapper.RegisterWhenNotExists<IMockExpressionProvider, CastleMockProvider>();
+            wrapper.RegisterWhenNotExists<IValueExpressionProvider, ValueExpressionProvider>();
             wrapper.RegisterWhenNotExists<IExpressionBuilder, ExpressionBuilder>();
             wrapper.RegisterWhenNotExists<IIdentifierValidator, CSharpIdentifierValidator>();
             wrapper.RegisterWhenNotExists<INullArgumentConstructorTestMethodSourceCodeGenerator, NullArgumentConstructorTestMethodSourceCodeGenerator>();

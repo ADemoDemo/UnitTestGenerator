@@ -60,8 +60,14 @@ namespace UnitTestGenerator.Extensions.Composition
         {
             return ComposeTestClassBuilder(assembly, callingAssemblyName, container =>
             {
-                container.Register(mockProvider ?? new CastleMockProvider());
-                container.Register(valueExpressionProvider ?? new ValueExpressionProvider());
+                if (mockProvider != null)
+                { 
+                    container.Register(mockProvider);
+                }
+                if (valueExpressionProvider != null)
+                {
+                    container.Register(valueExpressionProvider);
+                }
             }, configure);
         }
 
