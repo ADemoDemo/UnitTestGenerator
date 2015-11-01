@@ -25,18 +25,24 @@ namespace UnitTestGenerator.CodeGeneration.Generators
     public class MethodSourceCodeGenerationRequest : SourceCodeGenerationRequest
     {
         private readonly MethodInfo method;
+        readonly bool hasOverloadWithConflictingParameterName;
 
         /// <summary>
         /// Initializes a new instance of the MethodSourceCodeGenerationRequest class.
         /// </summary>
         /// <param name="method">The method descriptor.</param>
         /// <param name="nullArgumentNeedsExplicitCast">The value indicating whether the <paramref name="targetParameter"/> needs explicit cast.</param>
-        /// <param name="targetParameter"></param>
-        public MethodSourceCodeGenerationRequest(MethodInfo method, bool nullArgumentNeedsExplicitCast = false, ParameterInfo targetParameter = null)
+        /// <param name="targetParameter">The parameter which is tested.</param>
+        /// <param name="hasOverloadWithConflictingParameterName">Represents a value whether the passed method has overloads with conflicting parameter name.</param>
+        public MethodSourceCodeGenerationRequest(MethodInfo method, 
+            bool nullArgumentNeedsExplicitCast = false, 
+            ParameterInfo targetParameter = null,
+            bool hasOverloadWithConflictingParameterName = false)
             : base(nullArgumentNeedsExplicitCast, targetParameter)
         {
             Check.NotNull(method, "method");
             this.method = method;
+            this.hasOverloadWithConflictingParameterName = hasOverloadWithConflictingParameterName;
         }
 
         /// <summary>
@@ -47,6 +53,17 @@ namespace UnitTestGenerator.CodeGeneration.Generators
             get
             {
                 return method;
+            }
+        }
+
+        /// <summary>
+        /// Gets a value representing whether the passed method has overloads with conflicting parameter name.
+        /// </summary>
+        public bool HasOverloadWithConflictingParameterName
+        {
+            get
+            {
+                return hasOverloadWithConflictingParameterName;
             }
         }
     }

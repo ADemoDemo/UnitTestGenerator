@@ -54,6 +54,7 @@
     <Compile Include="InterfaceConstructorParameter.cs" />
     <Compile Include="InternalClass.cs" />
     <Compile Include="InternalInterface.cs" />
+    <Compile Include="MultipleConstructors.cs" />
     <Compile Include="NestedClasses.cs" />
     <Compile Include="OverloadedMethod.cs" />
     <Compile Include="PrivateConstructor.cs" />

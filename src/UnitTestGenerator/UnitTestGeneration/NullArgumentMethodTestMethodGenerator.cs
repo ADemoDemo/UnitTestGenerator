@@ -47,7 +47,10 @@ namespace UnitTestGenerator.UnitTestGeneration
             var parameters = metadata.Method.GetParameters();
             foreach (var nullParameter in parameters.Where(x => ParameterSatisfied(x)))
             {
-                var request = new MethodSourceCodeGenerationRequest(metadata.Method, metadata.NullArgumentNeedsExplicitCast, nullParameter);
+                var request = new MethodSourceCodeGenerationRequest(metadata.Method, 
+                    metadata.NullArgumentNeedsExplicitCast, 
+                    nullParameter,
+                    metadata.ConflictingMethodParameterName);
                 var sourceCode = sourceCodeGenerator.BuildSourceCode(request);
                 string methodName = sourceCodeGenerator.BuildMethodName(request);
 

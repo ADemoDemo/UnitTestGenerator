@@ -26,17 +26,22 @@ namespace UnitTestGenerator.UnitTestGeneration
     {
         private readonly MethodInfo method;
         private readonly bool nullArgumentNeedsExplicitCast;
+        private readonly bool conflictingMethodParameterName;
 
         /// <summary>
         /// Initializes a new instance of the MethodMetadata class.
         /// </summary>
         /// <param name="method">Method descriptor.</param>
         /// <param name="nullArgumentNeedsExplicitCast">Value indicating whether passed method parameters need explicit cast.</param>
-        public MethodMetadata(MethodInfo method, bool nullArgumentNeedsExplicitCast)
+        public MethodMetadata(MethodInfo method, 
+            bool nullArgumentNeedsExplicitCast, 
+            bool conflictingMethodParameterName)
         {
+            this.conflictingMethodParameterName = conflictingMethodParameterName;
             Check.NotNull(method, "method");
             this.method = method;
             this.nullArgumentNeedsExplicitCast = nullArgumentNeedsExplicitCast;
+
         }
 
         /// <summary>
@@ -58,6 +63,14 @@ namespace UnitTestGenerator.UnitTestGeneration
             get
             {
                 return nullArgumentNeedsExplicitCast;
+            }
+        }
+
+        public bool ConflictingMethodParameterName
+        {
+            get
+            {
+                return conflictingMethodParameterName;
             }
         }
     }

@@ -230,7 +230,7 @@ using UnitTestGenerator.ExpressionProviders;
                 [ExpectedException(typeof(System.ArgumentNullException))]
                 public void MethodMetadata_Constructor_MethodNullValueGiven_ShouldThrowArgumentNullException()
                 {
-                    new MethodMetadata(null, Value.Create<bool>());		 
+                    new MethodMetadata(null, Value.Create<bool>(), Value.Create<bool>());		 
                 }
 
             }
@@ -461,7 +461,7 @@ using UnitTestGenerator.ExpressionProviders;
                 [ExpectedException(typeof(System.ArgumentNullException))]
                 public void MethodSourceCodeGenerationRequest_Constructor_MethodNullValueGiven_ShouldThrowArgumentNullException()
                 {
-                    new MethodSourceCodeGenerationRequest(null, Value.Create<bool>(), ProxyGenerator.CreateProxy<ParameterInfo>());		 
+                    new MethodSourceCodeGenerationRequest(null, Value.Create<bool>(), ProxyGenerator.CreateProxy<ParameterInfo>(), Value.Create<bool>());		 
                 }
 
             }

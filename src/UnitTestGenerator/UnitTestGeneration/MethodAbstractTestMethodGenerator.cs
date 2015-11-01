@@ -41,14 +41,26 @@ namespace UnitTestGenerator.UnitTestGeneration
             var tests = new List<TestMethod>();
             var methodsToTest = GetMethodsToTest(typeContext.TargetType, typeContext.InternalsVisible);
             var explicitMethodParameters = GetMethodsWithExplicitParameterCast(methodsToTest);
+            var overloadedMethods = GetOverloadedMethodsWithConflictingParameter(methodsToTest);
 
             foreach (var method in methodsToTest)
             {
-                var metadata = new MethodMetadata(method, explicitMethodParameters.Contains(method));
+                var metadata = new MethodMetadata(method, 
+                    explicitMethodParameters.Contains(method),
+                    overloadedMethods.Contains(method));
                 var testMethods = GenerateTestMethodsFor(metadata);
                 tests.AddRange(testMethods);
             }
             return tests;
+        }
+
+        private IEnumerable<MethodInfo> GetOverloadedMethodsWithConflictingParameter(IEnumerable<MethodInfo> methodsToTest)
+        {
+            return methodsToTest.GroupBy(x => x.Name)
+                .Where(group => group.Count() > 0)
+                .Where(group => !group.SelectMany(method => method.GetParameters().Select(p => p.Name)).AllUnique())
+                .SelectMany(group => group)
+                .ToArray();
         }
 
         private static IEnumerable<MethodInfo> GetMethodsWithExplicitParameterCast(IEnumerable<MethodInfo> methodsToTest)

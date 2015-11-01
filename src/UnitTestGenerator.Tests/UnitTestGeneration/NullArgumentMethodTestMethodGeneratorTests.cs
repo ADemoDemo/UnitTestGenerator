@@ -48,6 +48,17 @@ namespace UnitTestGenerator.UnitTestGeneration.Tests
             result.Should().OnlyContain(x => x.SourceCode == expectedSourceCode);
         }
 
+        [TestMethod]
+        public void GenerateTestMethods_TypeWithOverloadsGiven()
+        {
+            var context = new TypeContext(typeof(TestAssembly.OverloadedMethods), true);
+            var result = testee.GenerateTestMethods(context);
+
+            result.Should().NotBeNull();
+            result.Should().OnlyContain(x => x.Name == expectedMethodName);
+            result.Should().OnlyContain(x => x.SourceCode == expectedSourceCode);
+        }
+
         [TestInitialize]
         public void Initialize()
         {

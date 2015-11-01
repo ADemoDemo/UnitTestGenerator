@@ -15,10 +15,10 @@
  *
  * ***************************************************************************/
 
-using System;
-using System.Globalization;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using System.Text;
 
 namespace UnitTestGenerator.CodeGeneration.Generators
 {
@@ -54,7 +54,21 @@ namespace UnitTestGenerator.CodeGeneration.Generators
         public override string BuildMethodName(MethodSourceCodeGenerationRequest request)
         {
             Check.NotNull(request, "request");
-            return request.Method.Name + "_" + request.ParameterDestinedAsNull.Name.Capitalize() + "NullValueGiven_ShouldThrowArgumentNullException";
+            var builder = new StringBuilder();
+            builder.Append(request.Method.Name);
+            if (request.HasOverloadWithConflictingParameterName)
+            {
+                builder.Append("_").Append(SerializeMethodArguments(request.Method));
+            }
+            builder.Append("_")
+                .Append(request.ParameterDestinedAsNull.Name.Capitalize())
+                .Append("NullValueGiven_ShouldThrowArgumentNullException");
+            return  builder.ToString();
+        }
+
+        private string SerializeMethodArguments(MethodInfo method)
+        {
+            return string.Join("", method.GetParameters().Select(x => x.ParameterType.Name).ToArray());
         }
 
         protected override void BuildActSourceCode(MethodSourceCodeGenerationRequest request)
