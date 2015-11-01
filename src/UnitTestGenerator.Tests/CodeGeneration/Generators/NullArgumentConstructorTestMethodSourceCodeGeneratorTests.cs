@@ -24,7 +24,7 @@ namespace UnitTestGenerator.CodeGeneration.Generators.Tests
         {
             var methodName =  testee.BuildMethodName(request);
 
-            methodName.Should().Be("ClassContructor_Constructor_InternalClassNullValueGiven_ShouldThrowArgumentNullException");
+            methodName.Should().Be("Constructor_PublicClassNullValueGiven_ShouldThrowArgumentNullException");
         }
 
         [TestMethod]
