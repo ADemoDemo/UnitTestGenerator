@@ -1,0 +1,2 @@
+D:\WinProgs\nuget.exe pack ..\src\UnitTestGenerator\UnitTestGenerator.csproj -IncludeReferencedProjects
+D:\WinProgs\nuget.exe pack ..\src\UnitTestGenerator.Extensions.Composition\UnitTestGenerator.Extensions.Composition.csproj -IncludeReferencedProjects
