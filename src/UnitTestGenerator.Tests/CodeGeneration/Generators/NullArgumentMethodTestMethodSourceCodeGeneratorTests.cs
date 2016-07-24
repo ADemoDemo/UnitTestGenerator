@@ -35,7 +35,7 @@ namespace UnitTestGenerator.CodeGeneration.Generators.Tests
 
             var methodName = testee.BuildMethodName(enumerableArgumentMethodRequest);
 
-            methodName.Should().Be("OverloadedMethod_IEnumerable_StringsNullValueGiven_ShouldThrowArgumentNullException");
+            methodName.Should().Be("OverloadedMethod_IEnumerableString_StringsNullValueGiven_ShouldThrowArgumentNullException");
         }
 
         [TestMethod]

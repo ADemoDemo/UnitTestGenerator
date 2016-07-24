@@ -22,7 +22,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("UnitTestGenerator.Extensions.Composition")]
-[assembly: AssemblyDescription("Composition extension to wire up dependencies and compose TestClassBuilder")]
+[assembly: AssemblyDescription("Composition extension to wire up dependencies and compose TestClassBuilder.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Peter Csikós")]
 [assembly: AssemblyProduct("UnitTestGenerator.Extensions.Composition")]

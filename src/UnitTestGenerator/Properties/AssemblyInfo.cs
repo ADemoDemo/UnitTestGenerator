@@ -23,7 +23,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Unit Test Generator")]
-[assembly: AssemblyDescription("Extensible source code generator of simple unit tests.")]
+[assembly: AssemblyDescription("Source code generation framework for simple unit tests like null argument checks. First time users use UnitTestGenerator.Extensions.Composition.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Peter Csikós")]
 [assembly: AssemblyProduct("Unit Test Generator")]
