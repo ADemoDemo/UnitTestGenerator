@@ -68,7 +68,7 @@ namespace UnitTestGenerator.CodeGeneration.Generators
 
         private string SerializeMethodArguments(MethodInfo method)
         {
-            return string.Join("", method.GetParameters().Select(x => x.ParameterType.Name).ToArray());
+            return string.Join("", method.GetParameters().Select(x => x.ParameterType.GetSafeTypeName()).ToArray());
         }
 
         protected override void BuildActSourceCode(MethodSourceCodeGenerationRequest request)

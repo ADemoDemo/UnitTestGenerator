@@ -1,10 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using UnitTestGenerator.CodeGeneration.Generators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Rhino.Mocks;
 using FluentAssertions;
 using System.Linq.Expressions;
@@ -16,6 +13,7 @@ namespace UnitTestGenerator.CodeGeneration.Generators.Tests
     public class NullArgumentMethodTestMethodSourceCodeGeneratorTests
     {
         delegate void FooBarSignature(string input);
+        delegate void EnumerableArgumentMethodSignature(IEnumerable<string> strings);
 
         private IExpressionBuilder expressionBuilder;
         private NullArgumentMethodTestMethodSourceCodeGenerator testee;
@@ -27,6 +25,17 @@ namespace UnitTestGenerator.CodeGeneration.Generators.Tests
             var methodName = testee.BuildMethodName(instanceMethodRequest);
 
             methodName.Should().Be("FooBar_InputNullValueGiven_ShouldThrowArgumentNullException");
+        }
+
+        [TestMethod]
+        public void BuildMethodName_GenericArgumentMethodWithOverloadGiven_ShouldProduceEquivalentName()
+        {
+            EnumerableArgumentMethodSignature enumerableArgumentMethod = new TestAssembly.OverloadedMethods("").OverloadedMethod;
+            var enumerableArgumentMethodRequest = new MethodSourceCodeGenerationRequest(enumerableArgumentMethod.Method, false, enumerableArgumentMethod.Method.GetParameters().First(), true);
+
+            var methodName = testee.BuildMethodName(enumerableArgumentMethodRequest);
+
+            methodName.Should().Be("OverloadedMethod_IEnumerable_StringsNullValueGiven_ShouldThrowArgumentNullException");
         }
 
         [TestMethod]

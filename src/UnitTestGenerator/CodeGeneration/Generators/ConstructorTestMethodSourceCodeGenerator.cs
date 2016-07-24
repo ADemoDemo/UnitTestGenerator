@@ -62,18 +62,9 @@ namespace UnitTestGenerator.CodeGeneration.Generators
         {
             if (request.HasMultipleConstructors)
             {
-                return "_" + string.Join("_", request.Constructor.GetParameters().Select(x => GetSafeTypeName(x.ParameterType)).ToArray()) + "_";
+                return "_" + string.Join("_", request.Constructor.GetParameters().Select(x => x.ParameterType.GetSafeTypeName()).ToArray()) + "_";
             }
             return "";
-        }
-
-        private static string GetSafeTypeName(Type type)
-        {
-            if (type.IsGenericType)
-            {
-                return type.Name.Substring(0, type.Name.IndexOf('`'));
-            }
-            return type.Name;
         }
     }
 }
